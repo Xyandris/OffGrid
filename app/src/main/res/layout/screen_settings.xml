@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SETTINGS / STATIC LAYOUT MOCKUP
+
+Place screen_settings.xml in app/src/main/res/layout/ and open Design or Split.
+This screen is self-contained: all text, colors and placeholder rows are inline.
+No other XML, drawable, string, style, image or Java/Kotlin file is required.
+Controls are deliberately inert; the file presents placement and spacing only.
+Uses Android framework Views compatible with Android 9 (API 28) and newer.
+Set minSdk = 28 in your app module to make Android 9 the minimum version.
+The tools dimensions are only a preview size; the layout fills its container.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/settings_screen"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:layoutDirection="ltr"
+    tools:layout_width="360dp"
+    tools:layout_height="720dp"
+    tools:ignore="HardcodedText">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="12dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="22sp"
+            android:textColor="#282828"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:includeFontPadding="false"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D0D0D0" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/settings_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:id="@+id/settings_profile"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="AC"
+                    android:textSize="14sp"
+                    android:textColor="#282828"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:background="#E1E1E1" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alex Carter"
+                        android:textSize="15sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="alex.carter@example.com"
+                        android:textSize="11sp"
+                        android:textColor="#686868"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="6dp"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="24sp"
+                    android:textColor="#686868"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:includeFontPadding="false"
+                    android:gravity="center" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D0D0D0"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/settings_notifications"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:text="N"
+                    android:textSize="14sp"
+                    android:textColor="#282828"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:background="#F0F0F0" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Notifications"
+                        android:textSize="13sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Message previews, sounds"
+                        android:textSize="11sp"
+                        android:textColor="#686868"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="5dp" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="#686868"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:includeFontPadding="false"
+                    android:gravity="center" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D0D0D0" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/settings_privacy"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:text="P"
+                    android:textSize="14sp"
+                    android:textColor="#282828"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:background="#F0F0F0" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Privacy"
+                        android:textSize="13sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Last seen, read receipts"
+                        android:textSize="11sp"
+                        android:textColor="#686868"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="5dp" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="#686868"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:includeFontPadding="false"
+                    android:gravity="center" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D0D0D0" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/settings_appearance"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:text="A"
+                    android:textSize="14sp"
+                    android:textColor="#282828"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:background="#F0F0F0" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Appearance"
+                        android:textSize="13sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Light mode"
+                        android:textSize="11sp"
+                        android:textColor="#686868"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="5dp" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="#686868"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:includeFontPadding="false"
+                    android:gravity="center" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D0D0D0" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:id="@+id/settings_help"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:text="?"
+                    android:textSize="14sp"
+                    android:textColor="#282828"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:background="#F0F0F0" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Help and support"
+                        android:textSize="13sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="#686868"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:includeFontPadding="false"
+                    android:gravity="center" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D0D0D0" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:id="@+id/settings_about"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:text="i"
+                    android:textSize="14sp"
+                    android:textColor="#282828"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:background="#F0F0F0" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="About"
+                        android:textSize="13sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="#686868"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:includeFontPadding="false"
+                    android:gravity="center" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D0D0D0" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <android.widget.Button
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/settings_logout"
+                android:text="Log out"
+                android:textSize="14sp"
+                android:textColor="#282828"
+                android:background="#E1E1E1"
+                android:backgroundTint="#E1E1E1"
+                android:fontFamily="sans-serif"
+                android:textAllCaps="false"
+                android:textStyle="normal"
+                android:gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="8dp"
+                android:elevation="0dp"
+                android:stateListAnimator="@null"
+                android:includeFontPadding="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+    </ScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D0D0D0" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="6dp">
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/settings_tab_chats"
+            android:text="Chats"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/settings_tab_search"
+            android:text="Search"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/settings_tab_requests"
+            android:text="Requests"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/settings_tab_settings"
+            android:text="Settings"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#E1E1E1"
+            android:backgroundTint="#E1E1E1"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
