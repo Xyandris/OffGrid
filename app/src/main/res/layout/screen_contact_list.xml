@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+CONTACT LIST / STATIC LAYOUT MOCKUP
+
+Place screen_contact_list.xml in app/src/main/res/layout/ and open Design or Split.
+This screen is self-contained: all text, colors and placeholder rows are inline.
+No other XML, drawable, string, style, image or Java/Kotlin file is required.
+Controls are deliberately inert; the file presents placement and spacing only.
+Uses Android framework Views compatible with Android 9 (API 28) and newer.
+Set minSdk = 28 in your app module to make Android 9 the minimum version.
+The tools dimensions are only a preview size; the layout fills its container.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/contacts_screen"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:layoutDirection="ltr"
+    tools:layout_width="360dp"
+    tools:layout_height="720dp"
+    tools:ignore="HardcodedText">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="12dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Messages"
+            android:textSize="22sp"
+            android:textColor="#282828"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:includeFontPadding="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:id="@+id/contacts_new_message"
+            android:text="+"
+            android:textSize="14sp"
+            android:textColor="#282828"
+            android:background="#E1E1E1"
+            android:backgroundTint="#E1E1E1"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="8dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:contentDescription="New message" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D0D0D0" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contacts_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <android.widget.EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/contacts_search"
+                android:hint="Search conversations..."
+                android:inputType="textFilter"
+                android:textSize="14sp"
+                android:textColor="#282828"
+                android:textColorHint="#686868"
+                android:background="#F0F0F0"
+                android:backgroundTint="#F0F0F0"
+                android:fontFamily="sans-serif"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
+                android:longClickable="false"
+                android:cursorVisible="false"
+                android:importantForAutofill="no"
+                android:saveEnabled="false"
+                android:contentDescription="Search conversations" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Conversations"
+                android:textSize="12sp"
+                android:textColor="#686868"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:includeFontPadding="false"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:id="@+id/contacts_sarah"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="SM"
+                    android:textSize="14sp"
+                    android:textColor="#282828"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:background="#E1E1E1" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sarah Miller"
+                        android:textSize="14sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="See you tomorrow!"
+                        android:textSize="12sp"
+                        android:textColor="#686868"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="6dp"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="end"
+                    android:layout_marginStart="4dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9:24"
+                        android:textSize="10sp"
+                        android:textColor="#686868"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false" />
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:text="2"
+                        android:textSize="11sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false"
+                        android:gravity="center"
+                        android:background="#E1E1E1"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D0D0D0" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:id="@+id/contacts_alex"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="AJ"
+                    android:textSize="14sp"
+                    android:textColor="#282828"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:background="#E1E1E1" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alex Johnson"
+                        android:textSize="14sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sounds good"
+                        android:textSize="12sp"
+                        android:textColor="#686868"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="6dp"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="end"
+                    android:layout_marginStart="4dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8:17"
+                        android:textSize="10sp"
+                        android:textColor="#686868"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:includeFontPadding="false" />
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:text="1"
+                        android:textSize="11sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false"
+                        android:gravity="center"
+                        android:background="#E1E1E1"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D0D0D0" />
+        </LinearLayout>
+    </ScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D0D0D0" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="6dp">
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/contacts_tab_chats"
+            android:text="Chats"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#E1E1E1"
+            android:backgroundTint="#E1E1E1"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/contacts_tab_search"
+            android:text="Search"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/contacts_tab_requests"
+            android:text="Requests"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/contacts_tab_settings"
+            android:text="Settings"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

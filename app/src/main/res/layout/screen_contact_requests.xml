@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+CONTACT REQUESTS / STATIC LAYOUT MOCKUP
+
+Place screen_contact_requests.xml in app/src/main/res/layout/ and open Design or Split.
+This screen is self-contained: all text, colors and placeholder rows are inline.
+No other XML, drawable, string, style, image or Java/Kotlin file is required.
+Controls are deliberately inert; the file presents placement and spacing only.
+Uses Android framework Views compatible with Android 9 (API 28) and newer.
+Set minSdk = 28 in your app module to make Android 9 the minimum version.
+The tools dimensions are only a preview size; the layout fills its container.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/requests_screen"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:layoutDirection="ltr"
+    tools:layout_width="360dp"
+    tools:layout_height="720dp"
+    tools:ignore="HardcodedText">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+        <android.widget.Button
+            android:layout_width="36dp"
+            android:layout_height="44dp"
+            android:id="@+id/requests_back"
+            android:text="‹"
+            android:textSize="14sp"
+            android:textColor="#282828"
+            android:background="#E1E1E1"
+            android:backgroundTint="#E1E1E1"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="8dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:contentDescription="Back"
+            android:layout_marginEnd="8dp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Contact requests"
+            android:textSize="18sp"
+            android:textColor="#282828"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:includeFontPadding="false"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D0D0D0" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/requests_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 pending requests"
+                android:textSize="12sp"
+                android:textColor="#686868"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:includeFontPadding="false"
+                android:layout_marginBottom="20dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/request_olivia"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:text="OD"
+                        android:textSize="14sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false"
+                        android:gravity="center"
+                        android:background="#E1E1E1" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Olivia Davis"
+                            android:textSize="14sp"
+                            android:textColor="#282828"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="bold"
+                            android:includeFontPadding="false" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Wants to connect with you"
+                            android:textSize="11sp"
+                            android:textColor="#686868"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="normal"
+                            android:includeFontPadding="false"
+                            android:layout_marginTop="6dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginTop="12dp">
+                    <android.widget.Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/request_olivia_accept"
+                        android:text="Accept"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF"
+                        android:background="#282828"
+                        android:backgroundTint="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="false"
+                        android:textStyle="normal"
+                        android:gravity="center"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="8dp"
+                        android:elevation="0dp"
+                        android:stateListAnimator="@null"
+                        android:includeFontPadding="false"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp" />
+                    <android.widget.Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/request_olivia_remove"
+                        android:text="Remove"
+                        android:textSize="14sp"
+                        android:textColor="#282828"
+                        android:background="#E1E1E1"
+                        android:backgroundTint="#E1E1E1"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="false"
+                        android:textStyle="normal"
+                        android:gravity="center"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="8dp"
+                        android:elevation="0dp"
+                        android:stateListAnimator="@null"
+                        android:includeFontPadding="false"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D0D0D0"
+                    android:layout_marginTop="20dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/request_james"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:text="JW"
+                        android:textSize="14sp"
+                        android:textColor="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false"
+                        android:gravity="center"
+                        android:background="#E1E1E1" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="James Wilson"
+                            android:textSize="14sp"
+                            android:textColor="#282828"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="bold"
+                            android:includeFontPadding="false" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Wants to connect with you"
+                            android:textSize="11sp"
+                            android:textColor="#686868"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="normal"
+                            android:includeFontPadding="false"
+                            android:layout_marginTop="6dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginTop="12dp">
+                    <android.widget.Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/request_james_accept"
+                        android:text="Accept"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF"
+                        android:background="#282828"
+                        android:backgroundTint="#282828"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="false"
+                        android:textStyle="normal"
+                        android:gravity="center"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="8dp"
+                        android:elevation="0dp"
+                        android:stateListAnimator="@null"
+                        android:includeFontPadding="false"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp" />
+                    <android.widget.Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/request_james_remove"
+                        android:text="Remove"
+                        android:textSize="14sp"
+                        android:textColor="#282828"
+                        android:background="#E1E1E1"
+                        android:backgroundTint="#E1E1E1"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="false"
+                        android:textStyle="normal"
+                        android:gravity="center"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="8dp"
+                        android:elevation="0dp"
+                        android:stateListAnimator="@null"
+                        android:includeFontPadding="false"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D0D0D0"
+                    android:layout_marginTop="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D0D0D0" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="6dp">
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/requests_tab_chats"
+            android:text="Chats"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/requests_tab_search"
+            android:text="Search"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/requests_tab_requests"
+            android:text="Requests"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#E1E1E1"
+            android:backgroundTint="#E1E1E1"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/requests_tab_settings"
+            android:text="Settings"
+            android:textSize="11sp"
+            android:textColor="#282828"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
