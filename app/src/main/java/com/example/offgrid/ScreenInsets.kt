@@ -1,4 +1,4 @@
-package com.example.offgriddev
+package com.example.offgrid
 
 import android.view.View
 import androidx.core.view.ViewCompat

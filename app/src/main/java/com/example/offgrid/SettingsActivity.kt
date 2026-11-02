@@ -1,10 +1,10 @@
-package com.example.offgriddev
+package com.example.offgrid
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.offgriddev.databinding.ActivitySettingsBinding
+import com.example.offgrid.databinding.ActivitySettingsBinding
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
