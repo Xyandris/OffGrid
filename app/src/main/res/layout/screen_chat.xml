@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-INDIVIDUAL CHAT / STATIC LAYOUT MOCKUP
-
-Place screen_chat.xml in app/src/main/res/layout/ and open Design or Split.
-This screen is self-contained: all text, colors and placeholder rows are inline.
-No other XML, drawable, string, style, image or Java/Kotlin file is required.
-Controls are deliberately inert; the file presents placement and spacing only.
-Uses Android framework Views compatible with Android 9 (API 28) and newer.
-Set minSdk = 28 in your app module to make Android 9 the minimum version.
-The tools dimensions are only a preview size; the layout fills its container.
--->
+<!-- Chat conversation mockup using the shared OffGrid colour palette. -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,7 +7,7 @@ The tools dimensions are only a preview size; the layout fills its container.
     android:layout_height="match_parent"
     android:id="@+id/chat_screen"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="@color/offgrid_background"
     android:layoutDirection="ltr"
     tools:layout_width="360dp"
     tools:layout_height="720dp"
@@ -35,9 +25,9 @@ The tools dimensions are only a preview size; the layout fills its container.
             android:id="@+id/chat_back"
             android:text="‹"
             android:textSize="14sp"
-            android:textColor="#282828"
-            android:background="#E1E1E1"
-            android:backgroundTint="#E1E1E1"
+            android:textColor="@color/offgrid_text"
+            android:background="@color/offgrid_button"
+            android:backgroundTint="@color/offgrid_button"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textStyle="normal"
@@ -48,20 +38,21 @@ The tools dimensions are only a preview size; the layout fills its container.
             android:elevation="0dp"
             android:stateListAnimator="@null"
             android:includeFontPadding="false"
-            android:clickable="false"
-            android:focusable="false"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="Back" />
         <TextView
             android:layout_width="36dp"
             android:layout_height="36dp"
+            android:id="@+id/chat_avatar"
             android:text="SM"
             android:textSize="14sp"
-            android:textColor="#282828"
+            android:textColor="@color/offgrid_text"
             android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:includeFontPadding="false"
             android:gravity="center"
-            android:background="#E1E1E1"
+            android:background="@color/offgrid_button"
             android:layout_marginStart="8dp" />
         <LinearLayout
             android:layout_width="0dp"
@@ -72,9 +63,10 @@ The tools dimensions are only a preview size; the layout fills its container.
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/chat_contact_name"
                 android:text="Sarah Miller"
                 android:textSize="15sp"
-                android:textColor="#282828"
+                android:textColor="@color/offgrid_text"
                 android:fontFamily="sans-serif"
                 android:textStyle="bold"
                 android:includeFontPadding="false" />
@@ -83,7 +75,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                 android:layout_height="wrap_content"
                 android:text="Online"
                 android:textSize="11sp"
-                android:textColor="#686868"
+                android:textColor="@color/offgrid_text_secondary"
                 android:fontFamily="sans-serif"
                 android:textStyle="normal"
                 android:includeFontPadding="false"
@@ -95,9 +87,9 @@ The tools dimensions are only a preview size; the layout fills its container.
             android:id="@+id/chat_more"
             android:text="⋮"
             android:textSize="14sp"
-            android:textColor="#282828"
-            android:background="#E1E1E1"
-            android:backgroundTint="#E1E1E1"
+            android:textColor="@color/offgrid_text"
+            android:background="@color/offgrid_button"
+            android:backgroundTint="@color/offgrid_button"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textStyle="normal"
@@ -115,7 +107,7 @@ The tools dimensions are only a preview size; the layout fills its container.
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#D0D0D0" />
+        android:background="@color/offgrid_divider" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -133,7 +125,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                 android:layout_height="wrap_content"
                 android:text="Today"
                 android:textSize="11sp"
-                android:textColor="#686868"
+                android:textColor="@color/offgrid_text_secondary"
                 android:fontFamily="sans-serif"
                 android:textStyle="normal"
                 android:includeFontPadding="false"
@@ -144,7 +136,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                 android:layout_height="wrap_content"
                 android:id="@+id/chat_message_1"
                 android:orientation="vertical"
-                android:background="#F0F0F0"
+                android:background="@color/offgrid_field"
                 android:padding="12dp"
                 android:layout_gravity="start"
                 android:layout_marginBottom="16dp">
@@ -153,7 +145,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:layout_height="wrap_content"
                     android:text="Are we still meeting tonight?"
                     android:textSize="14sp"
-                    android:textColor="#282828"
+                    android:textColor="@color/offgrid_text"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal"
                     android:includeFontPadding="false" />
@@ -162,7 +154,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:layout_height="wrap_content"
                     android:text="9:12"
                     android:textSize="10sp"
-                    android:textColor="#686868"
+                    android:textColor="@color/offgrid_text_secondary"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal"
                     android:includeFontPadding="false"
@@ -174,7 +166,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                 android:layout_height="wrap_content"
                 android:id="@+id/chat_message_2"
                 android:orientation="vertical"
-                android:background="#E1E1E1"
+                android:background="@color/offgrid_button"
                 android:padding="12dp"
                 android:layout_gravity="end"
                 android:layout_marginBottom="16dp">
@@ -183,7 +175,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:layout_height="wrap_content"
                     android:text="Yes! See you at 7."
                     android:textSize="14sp"
-                    android:textColor="#282828"
+                    android:textColor="@color/offgrid_text"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal"
                     android:includeFontPadding="false" />
@@ -192,7 +184,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:layout_height="wrap_content"
                     android:text="9:18"
                     android:textSize="10sp"
-                    android:textColor="#686868"
+                    android:textColor="@color/offgrid_text_secondary"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal"
                     android:includeFontPadding="false"
@@ -204,7 +196,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                 android:layout_height="wrap_content"
                 android:id="@+id/chat_message_3"
                 android:orientation="vertical"
-                android:background="#F0F0F0"
+                android:background="@color/offgrid_field"
                 android:padding="12dp"
                 android:layout_gravity="start"
                 android:layout_marginBottom="16dp">
@@ -213,7 +205,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:layout_height="wrap_content"
                     android:text="Great, see you there."
                     android:textSize="14sp"
-                    android:textColor="#282828"
+                    android:textColor="@color/offgrid_text"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal"
                     android:includeFontPadding="false" />
@@ -222,7 +214,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:layout_height="wrap_content"
                     android:text="9:20"
                     android:textSize="10sp"
-                    android:textColor="#686868"
+                    android:textColor="@color/offgrid_text_secondary"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal"
                     android:includeFontPadding="false"
@@ -234,7 +226,7 @@ The tools dimensions are only a preview size; the layout fills its container.
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#D0D0D0" />
+        android:background="@color/offgrid_divider" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -247,9 +239,9 @@ The tools dimensions are only a preview size; the layout fills its container.
             android:id="@+id/chat_attach"
             android:text="+"
             android:textSize="14sp"
-            android:textColor="#282828"
-            android:background="#E1E1E1"
-            android:backgroundTint="#E1E1E1"
+            android:textColor="@color/offgrid_text"
+            android:background="@color/offgrid_button"
+            android:backgroundTint="@color/offgrid_button"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textStyle="normal"
@@ -270,10 +262,10 @@ The tools dimensions are only a preview size; the layout fills its container.
             android:hint="Type a message..."
             android:inputType="textShortMessage"
             android:textSize="14sp"
-            android:textColor="#282828"
-            android:textColorHint="#686868"
-            android:background="#F0F0F0"
-            android:backgroundTint="#F0F0F0"
+            android:textColor="@color/offgrid_text"
+            android:textColorHint="@color/offgrid_text_secondary"
+            android:background="@color/offgrid_field"
+            android:backgroundTint="@color/offgrid_field"
             android:fontFamily="sans-serif"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -300,9 +292,9 @@ The tools dimensions are only a preview size; the layout fills its container.
             android:id="@+id/chat_send"
             android:text="Send"
             android:textSize="14sp"
-            android:textColor="#FFFFFF"
-            android:background="#282828"
-            android:backgroundTint="#282828"
+            android:textColor="@color/offgrid_background"
+            android:background="@color/offgrid_text"
+            android:backgroundTint="@color/offgrid_text"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textStyle="normal"

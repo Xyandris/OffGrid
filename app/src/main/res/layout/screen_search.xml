@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-SEARCH / STATIC LAYOUT MOCKUP
+SEARCH
 
-Place screen_search.xml in app/src/main/res/layout/ and open Design or Split.
-This screen is self-contained: all text, colors and placeholder rows are inline.
-No other XML, drawable, string, style, image or Java/Kotlin file is required.
-Controls are deliberately inert; the file presents placement and spacing only.
-Uses Android framework Views compatible with Android 9 (API 28) and newer.
-Set minSdk = 28 in your app module to make Android 9 the minimum version.
-The tools dimensions are only a preview size; the layout fills its container.
+Sample content uses the shared OffGrid palette and bottom navigation.
+The activity connects all four tabs; the existing sample rows remain placeholders.
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,7 +12,7 @@ The tools dimensions are only a preview size; the layout fills its container.
     android:layout_height="match_parent"
     android:id="@+id/search_screen"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="@color/offgrid_background"
     android:layoutDirection="ltr"
     tools:layout_width="360dp"
     tools:layout_height="720dp"
@@ -34,7 +29,7 @@ The tools dimensions are only a preview size; the layout fills its container.
             android:layout_height="wrap_content"
             android:text="Search"
             android:textSize="22sp"
-            android:textColor="#282828"
+            android:textColor="@color/offgrid_text"
             android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:includeFontPadding="false"
@@ -43,7 +38,7 @@ The tools dimensions are only a preview size; the layout fills its container.
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#D0D0D0" />
+        android:background="@color/offgrid_divider" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -63,10 +58,10 @@ The tools dimensions are only a preview size; the layout fills its container.
                 android:hint="Search contacts..."
                 android:inputType="textFilter"
                 android:textSize="14sp"
-                android:textColor="#282828"
-                android:textColorHint="#686868"
-                android:background="#F0F0F0"
-                android:backgroundTint="#F0F0F0"
+                android:textColor="@color/offgrid_text"
+                android:textColorHint="@color/offgrid_text_secondary"
+                android:background="@color/offgrid_field"
+                android:backgroundTint="@color/offgrid_field"
                 android:fontFamily="sans-serif"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
@@ -89,7 +84,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                 android:layout_height="wrap_content"
                 android:text="Recent"
                 android:textSize="12sp"
-                android:textColor="#686868"
+                android:textColor="@color/offgrid_text_secondary"
                 android:fontFamily="sans-serif"
                 android:textStyle="bold"
                 android:includeFontPadding="false"
@@ -105,12 +100,12 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:layout_height="40dp"
                     android:text="SM"
                     android:textSize="14sp"
-                    android:textColor="#282828"
+                    android:textColor="@color/offgrid_text"
                     android:fontFamily="sans-serif"
                     android:textStyle="bold"
                     android:includeFontPadding="false"
                     android:gravity="center"
-                    android:background="#E1E1E1" />
+                    android:background="@color/offgrid_button" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -122,7 +117,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                         android:layout_height="wrap_content"
                         android:text="Sarah Miller"
                         android:textSize="14sp"
-                        android:textColor="#282828"
+                        android:textColor="@color/offgrid_text"
                         android:fontFamily="sans-serif"
                         android:textStyle="bold"
                         android:includeFontPadding="false" />
@@ -131,7 +126,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                         android:layout_height="wrap_content"
                         android:text="sarah@example.com"
                         android:textSize="11sp"
-                        android:textColor="#686868"
+                        android:textColor="@color/offgrid_text_secondary"
                         android:fontFamily="sans-serif"
                         android:textStyle="normal"
                         android:includeFontPadding="false"
@@ -145,9 +140,9 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:id="@+id/search_remove_recent"
                     android:text="×"
                     android:textSize="14sp"
-                    android:textColor="#282828"
-                    android:background="#E1E1E1"
-                    android:backgroundTint="#E1E1E1"
+                    android:textColor="@color/offgrid_text"
+                    android:background="@color/offgrid_button"
+                    android:backgroundTint="@color/offgrid_button"
                     android:fontFamily="sans-serif"
                     android:textAllCaps="false"
                     android:textStyle="normal"
@@ -165,13 +160,13 @@ The tools dimensions are only a preview size; the layout fills its container.
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#D0D0D0" />
+                android:background="@color/offgrid_divider" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="All contacts"
                 android:textSize="12sp"
-                android:textColor="#686868"
+                android:textColor="@color/offgrid_text_secondary"
                 android:fontFamily="sans-serif"
                 android:textStyle="bold"
                 android:includeFontPadding="false"
@@ -187,12 +182,12 @@ The tools dimensions are only a preview size; the layout fills its container.
                     android:layout_height="40dp"
                     android:text="AJ"
                     android:textSize="14sp"
-                    android:textColor="#282828"
+                    android:textColor="@color/offgrid_text"
                     android:fontFamily="sans-serif"
                     android:textStyle="bold"
                     android:includeFontPadding="false"
                     android:gravity="center"
-                    android:background="#E1E1E1" />
+                    android:background="@color/offgrid_button" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -204,7 +199,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                         android:layout_height="wrap_content"
                         android:text="Alex Johnson"
                         android:textSize="14sp"
-                        android:textColor="#282828"
+                        android:textColor="@color/offgrid_text"
                         android:fontFamily="sans-serif"
                         android:textStyle="bold"
                         android:includeFontPadding="false" />
@@ -213,7 +208,7 @@ The tools dimensions are only a preview size; the layout fills its container.
                         android:layout_height="wrap_content"
                         android:text="alex@example.com"
                         android:textSize="11sp"
-                        android:textColor="#686868"
+                        android:textColor="@color/offgrid_text_secondary"
                         android:fontFamily="sans-serif"
                         android:textStyle="normal"
                         android:includeFontPadding="false"
@@ -225,106 +220,16 @@ The tools dimensions are only a preview size; the layout fills its container.
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#D0D0D0" />
+                android:background="@color/offgrid_divider" />
         </LinearLayout>
     </ScrollView>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#D0D0D0" />
-    <LinearLayout
+        android:background="@color/offgrid_divider" />
+    <include
+        android:id="@+id/bottomNavigation"
+        layout="@layout/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="6dp">
-        <android.widget.Button
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:id="@+id/search_tab_chats"
-            android:text="Chats"
-            android:textSize="11sp"
-            android:textColor="#282828"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="2dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
-            android:clickable="false"
-            android:focusable="false"
-            android:layout_weight="1" />
-        <android.widget.Button
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:id="@+id/search_tab_search"
-            android:text="Search"
-            android:textSize="11sp"
-            android:textColor="#282828"
-            android:background="#E1E1E1"
-            android:backgroundTint="#E1E1E1"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="2dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
-            android:clickable="false"
-            android:focusable="false"
-            android:layout_weight="1" />
-        <android.widget.Button
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:id="@+id/search_tab_requests"
-            android:text="Requests"
-            android:textSize="11sp"
-            android:textColor="#282828"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="2dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
-            android:clickable="false"
-            android:focusable="false"
-            android:layout_weight="1" />
-        <android.widget.Button
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:id="@+id/search_tab_settings"
-            android:text="Settings"
-            android:textSize="11sp"
-            android:textColor="#282828"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="2dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
-            android:clickable="false"
-            android:focusable="false"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_height="60dp" />
 </LinearLayout>
