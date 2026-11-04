@@ -1,9 +1,15 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.OffGrid" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<resources>
+    <style name="Base.Theme.OffGrid" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowBackground">@color/offgrid_background</item>
+        <item name="colorSurface">@color/offgrid_background</item>
+        <item name="colorOnSurface">@color/offgrid_text</item>
+        <item name="colorOnSurfaceVariant">@color/offgrid_text_secondary</item>
+        <item name="colorPrimary">@color/offgrid_text</item>
+        <item name="colorOnPrimary">@color/offgrid_background</item>
+        <item name="android:colorAccent">@color/offgrid_text</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
-
     <style name="Theme.OffGrid" parent="Base.Theme.OffGrid" />
 </resources>

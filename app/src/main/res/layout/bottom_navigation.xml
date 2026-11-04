@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/offgrid_background"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="6dp">
+
+    <android.widget.Button
+        android:id="@+id/tab_chats"
+        style="@style/Widget.OffGrid.TabButton"
+        android:text="@string/tab_chats" />
+
+    <android.widget.Button
+        android:id="@+id/tab_search"
+        style="@style/Widget.OffGrid.TabButton"
+        android:text="@string/tab_search" />
+
+    <android.widget.Button
+        android:id="@+id/tab_requests"
+        style="@style/Widget.OffGrid.TabButton"
+        android:text="@string/tab_requests" />
+
+    <android.widget.Button
+        android:id="@+id/tab_settings"
+        style="@style/Widget.OffGrid.TabButton"
+        android:text="@string/tab_settings" />
+</LinearLayout>

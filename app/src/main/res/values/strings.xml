@@ -3,16 +3,25 @@
     <string name="home_description">Open Settings to access your account.</string>
     <string name="open_settings">Settings</string>
     <string name="settings_title">Settings</string>
-    <string name="settings_description">Sign in to your account or create a new one.</string>
+    <string name="settings_description">App settings and development tools.</string>
+    <string name="development_title">Development</string>
+    <string name="development_description">Open the login and registration screens for development.</string>
+    <string name="development_open_login">Open login screen</string>
+    <string name="development_open_register">Open register screen</string>
     <string name="login_title">Log in</string>
     <string name="register_title">Register</string>
     <string name="create_account">Create account</string>
     <string name="open_register">New here? Register</string>
     <string name="open_login">Already registered? Log in</string>
-    <string name="back_home">Back to home</string>
+    <string name="back_home">Back to chats</string>
     <string name="back_settings">Back to Settings</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="login_not_configured">Sign-in is not configured yet.</string>
     <string name="register_not_configured">Account creation is not configured yet.</string>
+    <string name="password_reset_not_configured">Password reset is not configured yet.</string>
+    <string name="tab_chats">Chats</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_requests">Requests</string>
+    <string name="tab_settings">Settings</string>
 </resources>

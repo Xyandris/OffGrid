@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="offgrid_background">#FFFFFF</color>
+    <color name="offgrid_text">#282828</color>
+    <color name="offgrid_text_secondary">#686868</color>
+    <color name="offgrid_divider">#D0D0D0</color>
+    <color name="offgrid_field">#F0F0F0</color>
+    <color name="offgrid_button">#E1E1E1</color>
 </resources>
