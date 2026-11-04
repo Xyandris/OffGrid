@@ -1,54 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
-    android:fillViewport="true"
+    android:background="@color/offgrid_background"
     tools:context=".SettingsActivity">
 
-    <LinearLayout
+    <include
+        android:id="@+id/settingsScreen"
+        layout="@layout/screen_settings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnBack"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:text="@string/back_home" />
-
-        <TextView
-            style="@style/Widget.OffGrid.ScreenTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_title" />
-
-        <TextView
-            style="@style/Widget.OffGrid.ScreenDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_description" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogin"
-            style="@style/Widget.OffGrid.ActionButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/login_title" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegister"
-            style="@style/Widget.OffGrid.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/register_title" />
-    </LinearLayout>
-</ScrollView>
+        android:layout_height="match_parent" />
+</FrameLayout>

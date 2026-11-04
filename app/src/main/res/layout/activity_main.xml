@@ -1,38 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
-    android:fillViewport="true"
+    android:background="@color/offgrid_background"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <include
+        android:id="@+id/chatList"
+        layout="@layout/screen_contact_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
-
-        <TextView
-            style="@style/Widget.OffGrid.ScreenTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name" />
-
-        <TextView
-            style="@style/Widget.OffGrid.ScreenDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/home_description" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSettings"
-            style="@style/Widget.OffGrid.ActionButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/open_settings" />
-    </LinearLayout>
-</ScrollView>
+        android:layout_height="match_parent" />
+</FrameLayout>
