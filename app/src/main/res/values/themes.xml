@@ -1,5 +1,5 @@
 <resources>
-    <style name="Base.Theme.OffGrid" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Base.Theme.OffGrid" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:windowBackground">@color/offgrid_background</item>
         <item name="colorSurface">@color/offgrid_background</item>
@@ -8,8 +8,6 @@
         <item name="colorPrimary">@color/offgrid_text</item>
         <item name="colorOnPrimary">@color/offgrid_background</item>
         <item name="android:colorAccent">@color/offgrid_text</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowLightNavigationBar">true</item>
     </style>
     <style name="Theme.OffGrid" parent="Base.Theme.OffGrid" />
 </resources>

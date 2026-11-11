@@ -250,6 +250,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:id="@+id/settings_appearance"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
                 <TextView
@@ -281,7 +283,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Light mode"
+                        android:text="@string/appearance_light"
+                        android:id="@+id/settings_theme_value"
                         android:textSize="11sp"
                         android:textColor="@color/offgrid_text_secondary"
                         android:fontFamily="sans-serif"

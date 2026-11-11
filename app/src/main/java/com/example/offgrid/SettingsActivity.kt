@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.offgrid.databinding.ActivitySettingsBinding
+import android.content.res.Configuration
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
  * @brief Ekran ustawień z wejściem do deweloperskich formularzy konta.
@@ -21,6 +23,26 @@ class SettingsActivity : AppCompatActivity() {
         showOffGridScreen(binding.root)
         bindMainTabs(binding.settingsScreen.bottomNavigation, MainTab.SETTINGS)
 
+        val screen = binding.settingsScreen
+        val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        val selected = if (nightMode == Configuration.UI_MODE_NIGHT_YES) 1 else 0
+        val options = arrayOf(
+            getString(R.string.appearance_light),
+            getString(R.string.appearance_dark)
+        )
+
+        screen.settingsThemeValue.text = options[selected]
+
+        screen.settingsAppearance.setOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.appearance_title)
+                .setSingleChoiceItems(options, selected) { dialog, which ->
+                    dialog.dismiss()
+                    OffGridApplication.saveTheme(this, dark = which == 1)
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+        }
         binding.settingsScreen.btnLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }

@@ -17,11 +17,7 @@ import androidx.core.view.WindowInsetsCompat
  * @see applyScreenInsets
  */
 internal fun AppCompatActivity.showOffGridScreen(root: View) {
-    // Te układy mają jasne tło zarówno w jasnym, jak i ciemnym trybie systemu.
-    enableEdgeToEdge(
-        statusBarStyle = SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT),
-        navigationBarStyle = SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT)
-    )
+    enableEdgeToEdge()
     setContentView(root)
     applyScreenInsets(root)
 }
