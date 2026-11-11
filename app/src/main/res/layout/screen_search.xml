@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-SEARCH
+    @file screen_search.xml
+    @brief Makieta wyszukiwania z sekcjami ostatnich i wszystkich kontaktów.
+    @details SearchActivity podłącza dolne zakładki; zawartość list i pole zapytania są demonstracyjne.
+-->
+<!--
+    WYSZUKIWANIE
 
-Sample content uses the shared OffGrid palette and bottom navigation.
-The activity connects all four tabs; the existing sample rows remain placeholders.
+    Ekran korzysta ze wspólnej palety OffGrid i dolnego paska nawigacji.
+    Aktywność obsługuje wszystkie cztery zakładki. Listy kontaktów zawierają przykładowe dane.
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -51,6 +56,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
             android:id="@+id/search_content"
             android:orientation="vertical"
             android:padding="16dp">
+            <!--
+                @brief Nieaktywne pole prezentujące docelowe miejsce wpisania zapytania.
+                @note Nie przyjmuje tekstu i nie wykonuje filtrowania kontaktów.
+            -->
             <android.widget.EditText
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -89,6 +98,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:textStyle="bold"
                 android:includeFontPadding="false"
                 android:layout_marginTop="24dp" />
+            <!--
+                @brief Przykładowy wiersz ostatniego kontaktu w sekcji Recent.
+                @note Przycisk search_remove_recent jest nieaktywny; lista nie odzwierciedla historii wyszukiwań.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
@@ -227,6 +240,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/offgrid_divider" />
+    <!--
+        @brief Wspólny pasek zakładek umieszczony poza przewijaną treścią.
+        @details Aktywność podłącza ten include przez bindMainTabs z zakładką MainTab.SEARCH.
+    -->
     <include
         android:id="@+id/bottomNavigation"
         layout="@layout/bottom_navigation"

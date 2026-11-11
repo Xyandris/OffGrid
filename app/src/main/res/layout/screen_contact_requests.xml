@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-CONTACT REQUESTS
+    @file screen_contact_requests.xml
+    @brief Ekran dwóch przykładowych zaproszeń do kontaktów.
+    @details RequestsActivity obsługuje powrót i dolne zakładki; operacje na zaproszeniach są makietą.
+-->
+<!--
+    ZAPROSZENIA DO KONTAKTÓW
 
-Sample content uses the shared OffGrid palette and bottom navigation.
-The activity connects all four tabs; the existing sample rows remain placeholders.
+    Ekran korzysta ze wspólnej palety OffGrid i dolnego paska nawigacji.
+    Aktywność obsługuje wszystkie cztery zakładki. Wiersze przedstawiają przykładowe zaproszenia.
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -24,6 +29,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
         android:gravity="center_vertical"
         android:paddingStart="12dp"
         android:paddingEnd="12dp">
+        <!--
+            @brief Przycisk zamykający RequestsActivity i odsłaniający poprzednią aktywność.
+            @note Przy standardowym przejściu przez zakładki powrót prowadzi do listy czatów.
+        -->
         <android.widget.Button
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -84,6 +93,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:textStyle="normal"
                 android:includeFontPadding="false"
                 android:layout_marginBottom="20dp" />
+            <!--
+                @brief Początek statycznych kart zaproszeń od Olivii i Jamesa.
+                @note Przyciski Accept i Remove obu kart są nieaktywne; nie zmieniają stanu kontaktów.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -306,6 +319,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/offgrid_divider" />
+    <!--
+        @brief Wspólny pasek zakładek umieszczony poza przewijaną treścią.
+        @details Aktywność podłącza ten include przez bindMainTabs z zakładką MainTab.REQUESTS.
+    -->
     <include
         android:id="@+id/bottomNavigation"
         layout="@layout/bottom_navigation"

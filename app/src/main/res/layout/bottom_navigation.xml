@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file bottom_navigation.xml
+    @brief Wspólny pasek czterech głównych zakładek OffGrid.
+    @details Identyfikatory tab_chats, tab_search, tab_requests i tab_settings są używane przez bindMainTabs.
+    Ta funkcja przypisuje przejścia i ustawia isSelected; stan zaznaczenia steruje tłem przycisku.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"

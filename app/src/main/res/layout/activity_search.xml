@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file activity_search.xml
+    @brief Layout główny aktywności SearchActivity.
+    @details Dołącza screen_search.xml przez include o identyfikatorze searchScreen.
+    Główny FrameLayout otrzymuje odstępy pasków systemowych i klawiatury przez showOffGridScreen.
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-SETTINGS
+    @file screen_settings.xml
+    @brief Ekran makiety ustawień z działającą sekcją formularzy deweloperskich.
+    @details SettingsActivity podłącza powrót, zakładki oraz przyciski btnLogin i btnRegister.
+-->
+<!--
+    USTAWIENIA
 
-Sample content uses the shared OffGrid palette and bottom navigation.
-The activity connects all four tabs; the existing sample rows remain placeholders.
+    Ekran korzysta ze wspólnej palety OffGrid i dolnego paska nawigacji.
+    Aktywność obsługuje wszystkie cztery zakładki. Dane profilu i część opcji ustawień stanowią makietę.
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -59,6 +64,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
             android:id="@+id/settings_content"
             android:orientation="vertical"
             android:padding="16dp">
+            <!--
+                @brief Początek statycznych pozycji profilu i ustawień aplikacji.
+                @note Dane profilu są przykładowe; pozycje ustawień nie mają jeszcze podłączonych akcji.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
@@ -391,6 +400,11 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/offgrid_divider" />
+            <!--
+                @brief Sekcja deweloperska umożliwiająca otwieranie formularzy konta.
+                @details btnLogin otwiera LoginActivity, a btnRegister otwiera RegisterActivity.
+                Sekcja pozwala sprawdzić formularze bez skonfigurowanego uwierzytelniania.
+            -->
             <TextView
                 android:id="@+id/developmentSection"
                 style="@style/Widget.OffGrid.SectionTitle"
@@ -418,6 +432,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
+            <!--
+                @brief Nieaktywny przycisk prezentujący docelowe miejsce wylogowania.
+                @note Nie kończy sesji użytkownika; mechanizm uwierzytelniania nie jest skonfigurowany.
+            -->
             <android.widget.Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -446,6 +464,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/offgrid_divider" />
+    <!--
+        @brief Wspólny pasek zakładek umieszczony poza przewijaną treścią.
+        @details Aktywność podłącza ten include przez bindMainTabs z zakładką MainTab.SETTINGS.
+    -->
     <include
         android:id="@+id/bottomNavigation"
         layout="@layout/bottom_navigation"
