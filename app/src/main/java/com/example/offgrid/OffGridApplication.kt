@@ -34,15 +34,6 @@ class OffGridApplication : Application() {
         }
 
         private fun applyTheme(context: Context, dark: Boolean) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                val manager = context.getSystemService(UiModeManager::class.java)
-                if (manager != null) {
-                    val mode = if (dark) UiModeManager.MODE_NIGHT_YES
-                    else UiModeManager.MODE_NIGHT_NO
-                    manager.setApplicationNightMode(mode)
-                    return
-                }
-            }
 
             AppCompatDelegate.setDefaultNightMode(
                 if (dark) AppCompatDelegate.MODE_NIGHT_YES
