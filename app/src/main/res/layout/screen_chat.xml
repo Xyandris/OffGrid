@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Chat conversation mockup using the shared OffGrid colour palette. -->
+<!--
+    @file screen_chat.xml
+    @brief Makieta rozmowy z nagłówkiem kontaktu i przykładowymi wiadomościami.
+    @details ChatActivity ustawia nazwę i inicjały rozmówcy oraz obsługuje przycisk chat_back.
+-->
+<!-- Makieta rozmowy korzysta ze wspólnej palety kolorów OffGrid. -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,6 +17,10 @@
     tools:layout_width="360dp"
     tools:layout_height="720dp"
     tools:ignore="HardcodedText">
+    <!--
+        @brief Nagłówek z powrotem i danymi kontaktu przekazanymi przez Intent.
+        @note Przycisk chat_more jest nieaktywnym elementem makiety.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -131,6 +140,10 @@
                 android:includeFontPadding="false"
                 android:gravity="center"
                 android:layout_marginBottom="24dp" />
+            <!--
+                @brief Początek trzech przykładowych wiadomości rozmowy z Sarah Miller.
+                @note ChatActivity ukrywa chat_message_1, chat_message_2 i chat_message_3 dla innych kontaktów.
+            -->
             <LinearLayout
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
@@ -227,6 +240,10 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/offgrid_divider" />
+    <!--
+        @brief Pasek tworzenia wiadomości prezentowany wyłącznie jako makieta.
+        @note Pole tekstowe, załączniki i wysyłanie są nieaktywne; brak obsługi wysyłania wiadomości.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"

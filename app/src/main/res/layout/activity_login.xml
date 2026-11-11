@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file activity_login.xml
+    @brief Layout główny aktywności LoginActivity.
+    @details Dołącza screen_login.xml przez include o identyfikatorze loginScreen.
+    Główny FrameLayout otrzymuje odstępy pasków systemowych i klawiatury przez showOffGridScreen.
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"

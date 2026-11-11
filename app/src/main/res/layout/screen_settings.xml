@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-SETTINGS
+    @file screen_settings.xml
+    @brief Ekran makiety ustawień z działającą sekcją formularzy deweloperskich.
+    @details SettingsActivity podłącza powrót, zakładki oraz przyciski btnLogin i btnRegister.
+-->
+<!--
+    USTAWIENIA
 
-Sample content uses the shared OffGrid palette and bottom navigation.
-The activity connects all four tabs; the existing sample rows remain placeholders.
+    Ekran korzysta ze wspólnej palety OffGrid i dolnego paska nawigacji.
+    Aktywność obsługuje wszystkie cztery zakładki. Dane profilu i część opcji ustawień stanowią makietę.
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -59,50 +64,60 @@ The activity connects all four tabs; the existing sample rows remain placeholder
             android:id="@+id/settings_content"
             android:orientation="vertical"
             android:padding="16dp">
+            <!--
+                @brief Początek statycznych pozycji profilu i ustawień aplikacji.
+                @note Dane profilu są przykładowe; pozycje ustawień nie mają jeszcze podłączonych akcji.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:id="@+id/settings_profile"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
+
                 <TextView
+                    android:id="@+id/settingsProfileAvatar"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
-                    android:text="AC"
-                    android:textSize="14sp"
-                    android:textColor="@color/offgrid_text"
+                    android:background="@color/offgrid_button"
                     android:fontFamily="sans-serif"
-                    android:textStyle="bold"
-                    android:includeFontPadding="false"
                     android:gravity="center"
-                    android:background="@color/offgrid_button" />
+                    android:includeFontPadding="false"
+                    android:text="AC"
+                    android:textColor="@color/offgrid_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:layout_marginStart="12dp">
+
                     <TextView
+                        android:id="@+id/settingsProfileName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alex Carter"
-                        android:textSize="15sp"
-                        android:textColor="@color/offgrid_text"
                         android:fontFamily="sans-serif"
-                        android:textStyle="bold"
-                        android:includeFontPadding="false" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="alex.carter@example.com"
-                        android:textSize="11sp"
-                        android:textColor="@color/offgrid_text_secondary"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="normal"
                         android:includeFontPadding="false"
+                        android:text="Alex Carter"
+                        android:textColor="@color/offgrid_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/settingsProfileEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif"
+                        android:includeFontPadding="false"
                         android:maxLines="1"
-                        android:ellipsize="end" />
+                        android:text="alex.carter@example.com"
+                        android:textColor="@color/offgrid_text_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="normal" />
                 </LinearLayout>
                 <TextView
                     android:layout_width="20dp"
@@ -241,6 +256,8 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:id="@+id/settings_appearance"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
                 <TextView
@@ -272,7 +289,8 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Light mode"
+                        android:text="@string/appearance_light"
+                        android:id="@+id/settings_theme_value"
                         android:textSize="11sp"
                         android:textColor="@color/offgrid_text_secondary"
                         android:fontFamily="sans-serif"
@@ -391,6 +409,11 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/offgrid_divider" />
+            <!--
+                @brief Sekcja deweloperska umożliwiająca otwieranie formularzy konta.
+                @details btnLogin otwiera LoginActivity, a btnRegister otwiera RegisterActivity.
+                Sekcja pozwala sprawdzić formularze bez skonfigurowanego uwierzytelniania.
+            -->
             <TextView
                 android:id="@+id/developmentSection"
                 style="@style/Widget.OffGrid.SectionTitle"
@@ -418,6 +441,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
+            <!--
+                @brief Nieaktywny przycisk prezentujący docelowe miejsce wylogowania.
+                @note Nie kończy sesji użytkownika; mechanizm uwierzytelniania nie jest skonfigurowany.
+            -->
             <android.widget.Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -446,6 +473,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/offgrid_divider" />
+    <!--
+        @brief Wspólny pasek zakładek umieszczony poza przewijaną treścią.
+        @details Aktywność podłącza ten include przez bindMainTabs z zakładką MainTab.SETTINGS.
+    -->
     <include
         android:id="@+id/bottomNavigation"
         layout="@layout/bottom_navigation"

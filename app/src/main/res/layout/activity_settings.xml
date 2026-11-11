@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file activity_settings.xml
+    @brief Layout główny aktywności SettingsActivity.
+    @details Dołącza screen_settings.xml przez include o identyfikatorze settingsScreen.
+    Główny FrameLayout otrzymuje odstępy pasków systemowych i klawiatury przez showOffGridScreen.
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"

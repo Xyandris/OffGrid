@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-CONTACT LIST
+    @file screen_contact_list.xml
+    @brief Lista przykładowych rozmów z wejściem do ekranu czatu.
+    @details MainActivity podłącza kliknięcia kontaktów i wspólną nawigację; dane rozmów są statyczne.
+-->
+<!--
+    LISTA ROZMÓW
 
-Sample content uses the shared OffGrid palette and bottom navigation.
-The activity connects all four tabs; the existing sample rows remain placeholders.
+    Ekran korzysta ze wspólnej palety OffGrid i dolnego paska nawigacji.
+    Aktywność obsługuje wszystkie cztery zakładki. Wiersze zawierają przykładowe rozmowy.
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -73,6 +78,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
             android:id="@+id/contacts_content"
             android:orientation="vertical"
             android:padding="16dp">
+            <!--
+                @brief Wizualne pole wyszukiwania rozmów.
+                @note Pole ma wyłączoną edycję i nie filtruje listy.
+            -->
             <android.widget.EditText
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -112,6 +121,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:includeFontPadding="false"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="8dp" />
+            <!--
+                @brief Wiersz Sarah Miller otwierający ChatActivity z nazwą tego kontaktu.
+                @note Podgląd wiadomości, godzina i licznik nieprzeczytanych wiadomości są danymi przykładowymi.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="88dp"
@@ -195,6 +208,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/offgrid_divider" />
+            <!--
+                @brief Wiersz Alex Johnson otwierający ChatActivity z nazwą tego kontaktu.
+                @note Ekran czatu ukrywa dla Alexa przykładowe wiadomości należące do rozmowy z Sarah.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="88dp"
@@ -284,6 +301,10 @@ The activity connects all four tabs; the existing sample rows remain placeholder
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/offgrid_divider" />
+    <!--
+        @brief Wspólny pasek zakładek umieszczony poza przewijaną treścią.
+        @details Aktywność podłącza ten include przez bindMainTabs z zakładką MainTab.CHATS.
+    -->
     <include
         android:id="@+id/bottomNavigation"
         layout="@layout/bottom_navigation"
