@@ -74,44 +74,50 @@
                 android:id="@+id/settings_profile"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
+
                 <TextView
+                    android:id="@+id/settingsProfileAvatar"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
-                    android:text="AC"
-                    android:textSize="14sp"
-                    android:textColor="@color/offgrid_text"
+                    android:background="@color/offgrid_button"
                     android:fontFamily="sans-serif"
-                    android:textStyle="bold"
-                    android:includeFontPadding="false"
                     android:gravity="center"
-                    android:background="@color/offgrid_button" />
+                    android:includeFontPadding="false"
+                    android:text="AC"
+                    android:textColor="@color/offgrid_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:layout_marginStart="12dp">
+
                     <TextView
+                        android:id="@+id/settingsProfileName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alex Carter"
-                        android:textSize="15sp"
-                        android:textColor="@color/offgrid_text"
                         android:fontFamily="sans-serif"
-                        android:textStyle="bold"
-                        android:includeFontPadding="false" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="alex.carter@example.com"
-                        android:textSize="11sp"
-                        android:textColor="@color/offgrid_text_secondary"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="normal"
                         android:includeFontPadding="false"
+                        android:text="Alex Carter"
+                        android:textColor="@color/offgrid_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/settingsProfileEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif"
+                        android:includeFontPadding="false"
                         android:maxLines="1"
-                        android:ellipsize="end" />
+                        android:text="alex.carter@example.com"
+                        android:textColor="@color/offgrid_text_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="normal" />
                 </LinearLayout>
                 <TextView
                     android:layout_width="20dp"
