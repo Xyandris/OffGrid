@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.offgrid.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 
 /**
  * @brief Ekran formularza logowania otwierany z sekcji deweloperskiej ustawień.
@@ -29,8 +30,30 @@ class LoginActivity : AppCompatActivity() {
         }
         binding.loginScreen.loginBack.setOnClickListener { finish() }
         binding.loginScreen.loginSubmit.setOnClickListener {
-            // Tutaj podłącz usługę uwierzytelniania.
-            Toast.makeText(this, R.string.login_not_configured, Toast.LENGTH_SHORT).show()
+            val form = binding.loginScreen
+            val email = form.loginEmail.text.toString().trim()
+            val password = form.loginPassword.text.toString()
+
+            if (email.isBlank() || password.isBlank()) {
+                Toast.makeText(this, "Enter email and password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            form.loginSubmit.isEnabled = false
+
+            FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this){task ->
+                    form.loginSubmit.isEnabled=true
+                    if(task.isSuccessful){
+                        Toast.makeText(this,"Logged In", Toast.LENGTH_SHORT).show()
+                        val intent=Intent(this, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        }else{
+                            Toast.makeText(this,"Wrong password or email. Tryb again",Toast.LENGTH_LONG).show()
+
+                    }
+                }
         }
         binding.loginScreen.loginForgotPassword.setOnClickListener {
             Toast.makeText(this, R.string.password_reset_not_configured, Toast.LENGTH_SHORT).show()

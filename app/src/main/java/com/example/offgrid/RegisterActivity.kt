@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.offgrid.databinding.ActivityRegisterBinding
+import com.google.firebase.auth.FirebaseAuth
 
 /**
  * @brief Ekran formularza rejestracji dostępny z ustawień lub formularza logowania.
@@ -27,8 +28,30 @@ class RegisterActivity : AppCompatActivity() {
         }
         binding.registerScreen.registerBack.setOnClickListener { finish() }
         binding.registerScreen.registerSubmit.setOnClickListener {
-            // Tutaj podłącz usługę uwierzytelniania, aby tworzyć konta.
-            Toast.makeText(this, R.string.register_not_configured, Toast.LENGTH_SHORT).show()
+            val form=binding.registerScreen
+            val email=form.registerEmail.text.toString().trim()
+            val password=form.registerPassword.text.toString()
+            val confirmation=form.registerConfirmPassword.text.toString()
+
+            if(email.isBlank() || password.isBlank() || password!=confirmation){
+                Toast.makeText(this,"Enter email and correct password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            form.registerSubmit.isEnabled=false
+            FirebaseAuth.getInstance()
+                .createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this) {task->
+                    form.registerSubmit.isEnabled=true
+
+                    if(task.isSuccessful){
+                        Toast.makeText(this,"Account is created", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }else{
+                        val message=task.exception?.localizedMessage
+                            ?:"It's not possible to create your account"
+                        Toast.makeText(this,message, Toast.LENGTH_LONG).show()
+                    }
+                }
         }
     }
 }
