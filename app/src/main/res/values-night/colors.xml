@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file app/src/main/res/values-night/colors.xml
+    @brief Paleta kolorów ciemnego motywu OffGrid.
+    @details Nazwy kolorów odpowiadają tym z res/values/colors.xml.
+    W ciemnym trybie Android używa wartości z tego pliku dla tych samych widoków.
+-->
+<resources>
+    <color name="offgrid_background">#15181C</color>
+    <color name="offgrid_text">#F2F4F1</color>
+    <color name="offgrid_text_secondary">#AAB3B7</color>
+    <color name="offgrid_divider">#394149</color>
+    <color name="offgrid_field">#23282E</color>
+    <color name="offgrid_button">#343B43</color>
+</resources>
