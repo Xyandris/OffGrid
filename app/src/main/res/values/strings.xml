@@ -29,4 +29,5 @@
     <string name="appearance_dark">Dark</string>
     <string name="settings_account_signed_in">Signed in</string>
     <string name="settings_account_signed_out">Not signed in</string>
+    <string name="appearance_automatic">Automatic</string>
 </resources>
