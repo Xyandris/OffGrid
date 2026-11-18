@@ -59,12 +59,20 @@ class SettingsActivity : AppCompatActivity() {
         bindMainTabs(binding.settingsScreen.bottomNavigation, MainTab.SETTINGS)
 
         val screen = binding.settingsScreen
+        val app = application as OffGridApplication
         val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        val selected = if (nightMode == Configuration.UI_MODE_NIGHT_YES) 1 else 0
+
         val options = arrayOf(
             getString(R.string.appearance_light),
-            getString(R.string.appearance_dark)
+            getString(R.string.appearance_dark),
+            getString(R.string.appearance_automatic)
         )
+
+        var selected = when {
+            app.isAutomaticTheme -> 2
+            nightMode == Configuration.UI_MODE_NIGHT_YES -> 1
+            else -> 0
+        }
 
         screen.settingsThemeValue.text = options[selected]
 
@@ -73,11 +81,19 @@ class SettingsActivity : AppCompatActivity() {
                 .setTitle(R.string.appearance_title)
                 .setSingleChoiceItems(options, selected) { dialog, which ->
                     dialog.dismiss()
-                    OffGridApplication.saveTheme(this, dark = which == 1)
+                    selected = which
+                    screen.settingsThemeValue.text = options[which]
+
+                    if (which == 2) {
+                        app.saveAutomaticTheme()
+                    } else {
+                        OffGridApplication.saveTheme(this, dark = which == 1)
+                    }
                 }
                 .setNegativeButton(android.R.string.cancel, null)
                 .show()
         }
+
         binding.settingsScreen.btnLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
