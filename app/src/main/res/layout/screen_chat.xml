@@ -1,122 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    @file screen_chat.xml
-    @brief Makieta rozmowy z nagłówkiem kontaktu i przykładowymi wiadomościami.
-    @details ChatActivity ustawia nazwę i inicjały rozmówcy oraz obsługuje przycisk chat_back.
--->
-<!-- Makieta rozmowy korzysta ze wspólnej palety kolorów OffGrid. -->
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/chat_screen"
     android:orientation="vertical"
+    android:id="@+id/chat_screen"
     android:background="@color/offgrid_background"
     android:layoutDirection="ltr"
     tools:layout_width="360dp"
     tools:layout_height="720dp"
-    tools:ignore="HardcodedText">
-    <!--
-        @brief Nagłówek z powrotem i danymi kontaktu przekazanymi przez Intent.
-        @note Przycisk chat_more jest nieaktywnym elementem makiety.
-    -->
+    tools:ignore="HardcodedText"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:minHeight="96dp"
         android:gravity="center_vertical"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp">
-        <android.widget.Button
-            android:layout_width="36dp"
-            android:layout_height="44dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:id="@+id/chat_back"
-            android:text="‹"
-            android:textSize="14sp"
-            android:textColor="@color/offgrid_text"
-            android:background="@color/offgrid_button"
-            android:backgroundTint="@color/offgrid_button"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="8dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
-            android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="Back" />
+            android:src="@drawable/ic_back"
+            android:contentDescription="Back"
+            style="@style/Widget.OffGrid.IconButton" />
         <TextView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:id="@+id/chat_avatar"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
             android:text="SM"
-            android:textSize="14sp"
-            android:textColor="@color/offgrid_text"
-            android:fontFamily="sans-serif"
-            android:textStyle="bold"
-            android:includeFontPadding="false"
-            android:gravity="center"
-            android:background="@color/offgrid_button"
-            android:layout_marginStart="8dp" />
+            android:id="@+id/chat_avatar"
+            android:layout_marginStart="4dp"
+            style="@style/Widget.OffGrid.Avatar" />
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1"
-            android:layout_marginStart="10dp">
+            android:layout_marginStart="12dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/chat_contact_name"
                 android:text="Sarah Miller"
-                android:textSize="15sp"
-                android:textColor="@color/offgrid_text"
-                android:fontFamily="sans-serif"
-                android:textStyle="bold"
-                android:includeFontPadding="false" />
+                android:id="@+id/chat_contact_name"
+                android:textSize="25sp"
+                style="@style/Widget.OffGrid.ContactName" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Online"
-                android:textSize="11sp"
-                android:textColor="@color/offgrid_text_secondary"
-                android:fontFamily="sans-serif"
-                android:textStyle="normal"
-                android:includeFontPadding="false"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="3dp"
+                style="@style/Widget.OffGrid.ScreenDescription" />
         </LinearLayout>
-        <android.widget.Button
-            android:layout_width="36dp"
-            android:layout_height="44dp"
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:id="@+id/chat_more"
-            android:text="⋮"
-            android:textSize="14sp"
-            android:textColor="@color/offgrid_text"
-            android:background="@color/offgrid_button"
-            android:backgroundTint="@color/offgrid_button"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="8dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
+            android:src="@drawable/ic_more"
+            android:contentDescription="More options"
             android:clickable="false"
             android:focusable="false"
-            android:contentDescription="More options" />
+            style="@style/Widget.OffGrid.IconButton" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/offgrid_divider" />
+        android:background="@color/offgrid_divider"
+        android:importantForAccessibility="no"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -126,163 +81,151 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/chat_content"
             android:orientation="vertical"
-            android:padding="16dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Today"
-                android:textSize="11sp"
-                android:textColor="@color/offgrid_text_secondary"
-                android:fontFamily="sans-serif"
-                android:textStyle="normal"
-                android:includeFontPadding="false"
-                android:gravity="center"
-                android:layout_marginBottom="24dp" />
-            <!--
-                @brief Początek trzech przykładowych wiadomości rozmowy z Sarah Miller.
-                @note ChatActivity ukrywa chat_message_1, chat_message_2 i chat_message_3 dla innych kontaktów.
-            -->
+            android:id="@+id/chat_content"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="16dp">
             <LinearLayout
-                android:layout_width="230dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/chat_message_1"
                 android:orientation="vertical"
-                android:background="@color/offgrid_field"
+                android:background="@drawable/bg_bubble_incoming"
                 android:padding="12dp"
                 android:layout_gravity="start"
-                android:layout_marginBottom="16dp">
+                android:id="@+id/chat_message_1">
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Are we still meeting tonight?"
-                    android:textSize="14sp"
-                    android:textColor="@color/offgrid_text"
-                    android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:includeFontPadding="false" />
+                    android:text="Cześć! Będziesz jutro na gali?"
+                    style="@style/Widget.OffGrid.MessageText" />
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9:12"
-                    android:textSize="10sp"
-                    android:textColor="@color/offgrid_text_secondary"
-                    android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:includeFontPadding="false"
-                    android:gravity="end"
-                    android:layout_marginTop="8dp" />
+                    android:text="10:19"
+                    android:layout_marginTop="8dp"
+                    style="@style/Widget.OffGrid.MessageTime" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="230dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/chat_message_2"
                 android:orientation="vertical"
-                android:background="@color/offgrid_button"
+                android:background="@drawable/bg_bubble_outgoing"
                 android:padding="12dp"
                 android:layout_gravity="end"
-                android:layout_marginBottom="16dp">
+                android:id="@+id/chat_message_2"
+                android:layout_marginTop="12dp">
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tak 👍"
+                    style="@style/Widget.OffGrid.MessageText"
+                    android:textColor="@color/offgrid_message_outgoing_text" />
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Yes! See you at 7."
-                    android:textSize="14sp"
-                    android:textColor="@color/offgrid_text"
-                    android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:includeFontPadding="false" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="9:18"
-                    android:textSize="10sp"
-                    android:textColor="@color/offgrid_text_secondary"
-                    android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:includeFontPadding="false"
-                    android:gravity="end"
-                    android:layout_marginTop="8dp" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:22"
+                        android:layout_marginTop="8dp"
+                        style="@style/Widget.OffGrid.MessageTime"
+                        android:textColor="@color/offgrid_message_outgoing_secondary" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_double_check"
+                        android:tint="@color/offgrid_message_outgoing_secondary"
+                        android:importantForAccessibility="no"
+                        android:scaleType="fitCenter"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="230dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/chat_message_3"
                 android:orientation="vertical"
-                android:background="@color/offgrid_field"
-                android:padding="12dp"
-                android:layout_gravity="start"
-                android:layout_marginBottom="16dp">
-                <TextView
-                    android:layout_width="match_parent"
+                android:id="@+id/chat_message_3"
+                android:layout_marginTop="12dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Great, see you there."
-                    android:textSize="14sp"
-                    android:textColor="@color/offgrid_text"
-                    android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:includeFontPadding="false" />
-                <TextView
-                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_bubble_incoming"
+                    android:padding="12dp"
+                    android:layout_gravity="start">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No to super"
+                        style="@style/Widget.OffGrid.MessageText" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:28"
+                        android:layout_marginTop="8dp"
+                        style="@style/Widget.OffGrid.MessageTime" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9:20"
-                    android:textSize="10sp"
-                    android:textColor="@color/offgrid_text_secondary"
-                    android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:includeFontPadding="false"
-                    android:gravity="end"
-                    android:layout_marginTop="8dp" />
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_bubble_incoming"
+                    android:padding="12dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Do jutra!"
+                        style="@style/Widget.OffGrid.MessageText" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:29"
+                        android:layout_marginTop="8dp"
+                        style="@style/Widget.OffGrid.MessageTime" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/offgrid_divider" />
-    <!--
-        @brief Pasek tworzenia wiadomości prezentowany wyłącznie jako makieta.
-        @note Pole tekstowe, załączniki i wysyłanie są nieaktywne; brak obsługi wysyłania wiadomości.
-    -->
+        android:background="@color/offgrid_divider"
+        android:importantForAccessibility="no"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="72dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="8dp">
-        <android.widget.Button
-            android:layout_width="36dp"
-            android:layout_height="44dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="12dp">
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:id="@+id/chat_attach"
-            android:text="+"
-            android:textSize="14sp"
-            android:textColor="@color/offgrid_text"
-            android:background="@color/offgrid_button"
-            android:backgroundTint="@color/offgrid_button"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="8dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
+            android:src="@drawable/ic_add"
+            android:contentDescription="Add attachment"
             android:clickable="false"
             android:focusable="false"
-            android:contentDescription="Add attachment" />
+            style="@style/Widget.OffGrid.IconButton" />
         <android.widget.EditText
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:id="@+id/chat_message_input"
             android:hint="Type a message..."
-            android:inputType="textShortMessage"
-            android:textSize="14sp"
+            android:background="@drawable/bg_field"
+            android:backgroundTint="@null"
             android:textColor="@color/offgrid_text"
             android:textColorHint="@color/offgrid_text_secondary"
-            android:background="@color/offgrid_field"
-            android:backgroundTint="@color/offgrid_field"
+            android:textSize="16sp"
             android:fontFamily="sans-serif"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -299,30 +242,24 @@
             android:cursorVisible="false"
             android:importantForAutofill="no"
             android:saveEnabled="false"
+            android:inputType="textCapSentences|textMultiLine"
+            android:drawableEnd="@drawable/ic_emoji"
+            android:drawableTint="@color/offgrid_text_secondary"
+            android:drawablePadding="8dp"
+            android:contentDescription="Message input"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="Message" />
-        <android.widget.Button
-            android:layout_width="56dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="8dp" />
+        <ImageButton
+            android:layout_width="44dp"
             android:layout_height="44dp"
             android:id="@+id/chat_send"
-            android:text="Send"
-            android:textSize="14sp"
-            android:textColor="@color/offgrid_background"
-            android:background="@color/offgrid_text"
-            android:backgroundTint="@color/offgrid_text"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="8dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
+            android:src="@drawable/ic_send"
+            android:contentDescription="Send message"
             android:clickable="false"
-            android:focusable="false" />
+            android:focusable="false"
+            android:background="@drawable/bg_send"
+            android:tint="@color/offgrid_message_outgoing_text"
+            style="@style/Widget.OffGrid.IconButton" />
     </LinearLayout>
 </LinearLayout>

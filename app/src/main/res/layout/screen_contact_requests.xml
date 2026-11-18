@@ -1,331 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-    @file screen_contact_requests.xml
-    @brief Ekran dwóch przykładowych zaproszeń do kontaktów.
-    @details RequestsActivity obsługuje powrót i dolne zakładki; operacje na zaproszeniach są makietą.
--->
-<!--
-    ZAPROSZENIA DO KONTAKTÓW
-
-    Ekran korzysta ze wspólnej palety OffGrid i dolnego paska nawigacji.
-    Aktywność obsługuje wszystkie cztery zakładki. Wiersze przedstawiają przykładowe zaproszenia.
--->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/requests_screen"
-    android:orientation="vertical"
-    android:background="@color/offgrid_background"
-    android:layoutDirection="ltr"
-    tools:layout_width="360dp"
-    tools:layout_height="720dp"
-    tools:ignore="HardcodedText">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp">
-        <!--
-            @brief Przycisk zamykający RequestsActivity i odsłaniający poprzednią aktywność.
-            @note Przy standardowym przejściu przez zakładki powrót prowadzi do listy czatów.
-        -->
-        <android.widget.Button
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:id="@+id/requests_back"
-            android:text="‹"
-            android:textSize="14sp"
-            android:textColor="@color/offgrid_text"
-            android:background="@color/offgrid_button"
-            android:backgroundTint="@color/offgrid_button"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="8dp"
-            android:elevation="0dp"
-            android:stateListAnimator="@null"
-            android:includeFontPadding="false"
-            android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="@string/back_home"
-            android:layout_marginEnd="8dp" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Contact requests"
-            android:textSize="22sp"
-            android:textColor="@color/offgrid_text"
-            android:fontFamily="sans-serif"
-            android:textStyle="bold"
-            android:includeFontPadding="false"
-            android:layout_weight="1" />
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/requests_screen" android:orientation="vertical" android:background="@color/offgrid_background" android:layoutDirection="ltr" tools:layout_width="360dp" tools:layout_height="720dp" tools:ignore="HardcodedText">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingStart="12dp" android:paddingEnd="12dp" android:minHeight="96dp" android:paddingTop="20dp" android:paddingBottom="20dp">
+        <ImageButton android:layout_width="48dp" android:layout_height="48dp" android:id="@+id/requests_back" android:background="?android:attr/selectableItemBackgroundBorderless" android:backgroundTint="@null" android:gravity="center" android:minWidth="0dp" android:minHeight="0dp" android:padding="10dp" android:elevation="0dp" android:stateListAnimator="@null" android:clickable="true" android:focusable="true" android:contentDescription="@string/back_home" android:layout_marginEnd="8dp" android:src="@drawable/ic_back" android:tint="@color/offgrid_text" android:scaleType="fitCenter" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/tab_requests" android:textSize="36sp" android:textColor="@color/offgrid_text" android:fontFamily="sans-serif-light" android:textStyle="normal" android:includeFontPadding="false" android:layout_weight="1" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/offgrid_divider" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:scrollbars="none">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/requests_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2 pending requests"
-                android:textSize="12sp"
-                android:textColor="@color/offgrid_text_secondary"
-                android:fontFamily="sans-serif"
-                android:textStyle="normal"
-                android:includeFontPadding="false"
-                android:layout_marginBottom="20dp" />
-            <!--
-                @brief Początek statycznych kart zaproszeń od Olivii i Jamesa.
-                @note Przyciski Accept i Remove obu kart są nieaktywne; nie zmieniają stanu kontaktów.
-            -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/request_olivia"
-                android:orientation="vertical"
-                android:layout_marginBottom="20dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:text="OD"
-                        android:textSize="14sp"
-                        android:textColor="@color/offgrid_text"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="bold"
-                        android:includeFontPadding="false"
-                        android:gravity="center"
-                        android:background="@color/offgrid_button" />
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Olivia Davis"
-                            android:textSize="14sp"
-                            android:textColor="@color/offgrid_text"
-                            android:fontFamily="sans-serif"
-                            android:textStyle="bold"
-                            android:includeFontPadding="false" />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Wants to connect with you"
-                            android:textSize="11sp"
-                            android:textColor="@color/offgrid_text_secondary"
-                            android:fontFamily="sans-serif"
-                            android:textStyle="normal"
-                            android:includeFontPadding="false"
-                            android:layout_marginTop="6dp" />
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/offgrid_divider" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true" android:scrollbars="none">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/requests_content" android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2 pending requests" android:textSize="12sp" android:textColor="@color/offgrid_text_secondary" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" android:layout_marginBottom="20dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/request_olivia" android:orientation="vertical" android:layout_marginBottom="20dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="52dp" android:layout_height="52dp" android:text="OD" android:textSize="19sp" android:textColor="@color/offgrid_text" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" android:gravity="center" android:background="@drawable/bg_avatar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:layout_marginStart="12dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Olivia Davis" android:textSize="20sp" android:textColor="@color/offgrid_text" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Wants to connect with you" android:textSize="11sp" android:textColor="@color/offgrid_text_secondary" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" android:layout_marginTop="6dp" />
                     </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="56dp"
-                    android:layout_marginTop="12dp">
-                    <android.widget.Button
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/request_olivia_accept"
-                        android:text="Accept"
-                        android:textSize="14sp"
-                        android:textColor="@color/offgrid_background"
-                        android:background="@color/offgrid_text"
-                        android:backgroundTint="@color/offgrid_text"
-                        android:fontFamily="sans-serif"
-                        android:textAllCaps="false"
-                        android:textStyle="normal"
-                        android:gravity="center"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="8dp"
-                        android:elevation="0dp"
-                        android:stateListAnimator="@null"
-                        android:includeFontPadding="false"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp" />
-                    <android.widget.Button
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/request_olivia_remove"
-                        android:text="Remove"
-                        android:textSize="14sp"
-                        android:textColor="@color/offgrid_text"
-                        android:background="@color/offgrid_button"
-                        android:backgroundTint="@color/offgrid_button"
-                        android:fontFamily="sans-serif"
-                        android:textAllCaps="false"
-                        android:textStyle="normal"
-                        android:gravity="center"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="8dp"
-                        android:elevation="0dp"
-                        android:stateListAnimator="@null"
-                        android:includeFontPadding="false"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:layout_weight="1" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginStart="56dp" android:layout_marginTop="12dp">
+                    <android.widget.Button android:layout_width="0dp" android:layout_height="40dp" android:id="@+id/request_olivia_accept" android:text="Accept" android:textSize="14sp" android:textColor="@color/offgrid_background" android:background="@drawable/bg_request_button" android:backgroundTint="@color/offgrid_text" android:fontFamily="sans-serif" android:textAllCaps="false" android:textStyle="normal" android:gravity="center" android:minWidth="0dp" android:minHeight="0dp" android:padding="8dp" android:elevation="0dp" android:stateListAnimator="@null" android:includeFontPadding="false" android:clickable="false" android:focusable="false" android:layout_weight="1" android:layout_marginEnd="8dp" />
+                    <android.widget.Button android:layout_width="0dp" android:layout_height="40dp" android:id="@+id/request_olivia_remove" android:text="Remove" android:textSize="14sp" android:textColor="@color/offgrid_text" android:background="@drawable/bg_request_button" android:backgroundTint="@color/offgrid_button" android:fontFamily="sans-serif" android:textAllCaps="false" android:textStyle="normal" android:gravity="center" android:minWidth="0dp" android:minHeight="0dp" android:padding="8dp" android:elevation="0dp" android:stateListAnimator="@null" android:includeFontPadding="false" android:clickable="false" android:focusable="false" android:layout_weight="1" />
                 </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/offgrid_divider"
-                    android:layout_marginTop="20dp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/offgrid_divider" android:layout_marginTop="20dp" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/request_james"
-                android:orientation="vertical"
-                android:layout_marginBottom="20dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:text="JW"
-                        android:textSize="14sp"
-                        android:textColor="@color/offgrid_text"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="bold"
-                        android:includeFontPadding="false"
-                        android:gravity="center"
-                        android:background="@color/offgrid_button" />
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="James Wilson"
-                            android:textSize="14sp"
-                            android:textColor="@color/offgrid_text"
-                            android:fontFamily="sans-serif"
-                            android:textStyle="bold"
-                            android:includeFontPadding="false" />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Wants to connect with you"
-                            android:textSize="11sp"
-                            android:textColor="@color/offgrid_text_secondary"
-                            android:fontFamily="sans-serif"
-                            android:textStyle="normal"
-                            android:includeFontPadding="false"
-                            android:layout_marginTop="6dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/request_james" android:orientation="vertical" android:layout_marginBottom="20dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="52dp" android:layout_height="52dp" android:text="JW" android:textSize="19sp" android:textColor="@color/offgrid_text" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" android:gravity="center" android:background="@drawable/bg_avatar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:layout_marginStart="12dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="James Wilson" android:textSize="20sp" android:textColor="@color/offgrid_text" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Wants to connect with you" android:textSize="11sp" android:textColor="@color/offgrid_text_secondary" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" android:layout_marginTop="6dp" />
                     </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="56dp"
-                    android:layout_marginTop="12dp">
-                    <android.widget.Button
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/request_james_accept"
-                        android:text="Accept"
-                        android:textSize="14sp"
-                        android:textColor="@color/offgrid_background"
-                        android:background="@color/offgrid_text"
-                        android:backgroundTint="@color/offgrid_text"
-                        android:fontFamily="sans-serif"
-                        android:textAllCaps="false"
-                        android:textStyle="normal"
-                        android:gravity="center"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="8dp"
-                        android:elevation="0dp"
-                        android:stateListAnimator="@null"
-                        android:includeFontPadding="false"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp" />
-                    <android.widget.Button
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/request_james_remove"
-                        android:text="Remove"
-                        android:textSize="14sp"
-                        android:textColor="@color/offgrid_text"
-                        android:background="@color/offgrid_button"
-                        android:backgroundTint="@color/offgrid_button"
-                        android:fontFamily="sans-serif"
-                        android:textAllCaps="false"
-                        android:textStyle="normal"
-                        android:gravity="center"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="8dp"
-                        android:elevation="0dp"
-                        android:stateListAnimator="@null"
-                        android:includeFontPadding="false"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:layout_weight="1" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginStart="56dp" android:layout_marginTop="12dp">
+                    <android.widget.Button android:layout_width="0dp" android:layout_height="40dp" android:id="@+id/request_james_accept" android:text="Accept" android:textSize="14sp" android:textColor="@color/offgrid_background" android:background="@drawable/bg_request_button" android:backgroundTint="@color/offgrid_text" android:fontFamily="sans-serif" android:textAllCaps="false" android:textStyle="normal" android:gravity="center" android:minWidth="0dp" android:minHeight="0dp" android:padding="8dp" android:elevation="0dp" android:stateListAnimator="@null" android:includeFontPadding="false" android:clickable="false" android:focusable="false" android:layout_weight="1" android:layout_marginEnd="8dp" />
+                    <android.widget.Button android:layout_width="0dp" android:layout_height="40dp" android:id="@+id/request_james_remove" android:text="Remove" android:textSize="14sp" android:textColor="@color/offgrid_text" android:background="@drawable/bg_request_button" android:backgroundTint="@color/offgrid_button" android:fontFamily="sans-serif" android:textAllCaps="false" android:textStyle="normal" android:gravity="center" android:minWidth="0dp" android:minHeight="0dp" android:padding="8dp" android:elevation="0dp" android:stateListAnimator="@null" android:includeFontPadding="false" android:clickable="false" android:focusable="false" android:layout_weight="1" />
                 </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/offgrid_divider"
-                    android:layout_marginTop="20dp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/offgrid_divider" android:layout_marginTop="20dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/offgrid_divider" />
-    <!--
-        @brief Wspólny pasek zakładek umieszczony poza przewijaną treścią.
-        @details Aktywność podłącza ten include przez bindMainTabs z zakładką MainTab.REQUESTS.
-    -->
-    <include
-        android:id="@+id/bottomNavigation"
-        layout="@layout/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/offgrid_divider" />
+    <include android:id="@+id/bottomNavigation" layout="@layout/bottom_navigation" android:layout_width="match_parent" android:layout_height="78dp" />
 </LinearLayout>
