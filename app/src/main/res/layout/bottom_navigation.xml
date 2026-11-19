@@ -52,8 +52,9 @@
             android:layout_height="76dp"
             android:id="@+id/tab_requests"
             android:text="@string/tab_requests"
-            android:drawableTop="@drawable/ic_person"
-            style="@style/Widget.OffGrid.TabButton" />
+            android:drawableTop="@drawable/ic_requests_badge"
+            style="@style/Widget.OffGrid.TabButton"
+            android:drawableTint="@null" />
         <View
             android:layout_width="1dp"
             android:layout_height="46dp"
