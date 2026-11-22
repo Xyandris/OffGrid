@@ -108,8 +108,8 @@
                 android:gravity="center_vertical"
                 android:id="@+id/settings_notifications"
                 android:background="?android:attr/selectableItemBackground"
-                android:clickable="false"
-                android:focusable="false">
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="38dp"
                     android:layout_height="38dp"
@@ -153,8 +153,8 @@
                 android:gravity="center_vertical"
                 android:id="@+id/settings_privacy"
                 android:background="?android:attr/selectableItemBackground"
-                android:clickable="false"
-                android:focusable="false">
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="38dp"
                     android:layout_height="38dp"
@@ -244,8 +244,8 @@
                 android:gravity="center_vertical"
                 android:id="@+id/settings_help"
                 android:background="?android:attr/selectableItemBackground"
-                android:clickable="false"
-                android:focusable="false">
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -284,8 +284,8 @@
                 android:gravity="center_vertical"
                 android:id="@+id/settings_about"
                 android:background="?android:attr/selectableItemBackground"
-                android:clickable="false"
-                android:focusable="false">
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"

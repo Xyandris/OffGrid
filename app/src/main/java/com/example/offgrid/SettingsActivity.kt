@@ -59,6 +59,33 @@ class SettingsActivity : AppCompatActivity() {
         bindMainTabs(binding.settingsScreen.bottomNavigation, MainTab.SETTINGS)
 
         val screen = binding.settingsScreen
+        screen.settingsPrivacy.setOnClickListener {
+            showSettingsInfo(
+                R.string.settings_privacy_title,
+                getString(R.string.settings_privacy_message)
+            )
+        }
+        screen.settingsNotifications.setOnClickListener {
+            showSettingsInfo(
+                R.string.settings_notifications_title,
+                getString(R.string.settings_notifications_message)
+            )
+        }
+        screen.settingsHelp.setOnClickListener {
+            showSettingsInfo(
+                R.string.settings_help_title,
+                getString(R.string.settings_help_message)
+            )
+        }
+        screen.settingsAbout.setOnClickListener {
+            @Suppress("DEPRECATION")
+            val versionName = packageManager.getPackageInfo(packageName, 0).versionName.orEmpty()
+
+            showSettingsInfo(
+                R.string.settings_about_title,
+                getString(R.string.settings_about_message, getString(R.string.app_name), versionName)
+            )
+        }
         val app = application as OffGridApplication
         val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
 
@@ -104,6 +131,14 @@ class SettingsActivity : AppCompatActivity() {
         binding.settingsScreen.settingsLogout.setOnClickListener {
             auth.signOut()
         }
+
+    }
+    private fun showSettingsInfo(titleRes: Int, message: String) {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(titleRes)
+            .setMessage(message)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 }
 
