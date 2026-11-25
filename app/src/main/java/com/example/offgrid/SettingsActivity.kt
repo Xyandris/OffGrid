@@ -1,22 +1,20 @@
 package com.example.offgrid
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.offgrid.databinding.ActivitySettingsBinding
 import android.content.res.Configuration
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import android.os.Bundle
 import android.view.View
+import com.example.offgrid.databinding.ActivitySettingsBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 
-class SettingsActivity : AppCompatActivity() {
-
+class SettingsActivity : BaseActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private val auth by lazy { FirebaseAuth.getInstance() }
-    private val accountListener= FirebaseAuth.AuthStateListener{firebase->
-        val user=firebase.currentUser
-        val email=user?.email.orEmpty()
-        val name=user?.displayName?.takeIf {it.isNotBlank()}
+    private val accountListener = FirebaseAuth.AuthStateListener { firebase ->
+        val user = firebase.currentUser
+        val email = user?.email.orEmpty()
+        val name = user?.displayName?.takeIf { it.isNotBlank() }
         val profile = binding.settingsScreen
 
         profile.settingsProfileName.text = when {
@@ -35,16 +33,17 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        auth.addAuthStateListener(accountListener)
+        if (!isFinishing) auth.addAuthStateListener(accountListener)
     }
 
     override fun onStop() {
         auth.removeAuthStateListener(accountListener)
         super.onStop()
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (isFinishing) return
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         showOffGridScreen(binding.root)
         bindMainTabs(binding.settingsScreen.bottomNavigation, MainTab.SETTINGS)
@@ -111,7 +110,7 @@ class SettingsActivity : AppCompatActivity() {
                         OffGridApplication.saveTheme(this, dark = which == 1)
                     }
                 }
-                .setNegativeButton(android.R.string.cancel, null)
+                .setNegativeButton(R.string.action_cancel, null)
                 .show()
         }
 
@@ -127,8 +126,8 @@ class SettingsActivity : AppCompatActivity() {
             AppLock.lock()
             openLogin()
         }
-
     }
+
     override fun onResume() {
         super.onResume()
         if (::binding.isInitialized) {
@@ -142,7 +141,7 @@ class SettingsActivity : AppCompatActivity() {
         MaterialAlertDialogBuilder(this)
             .setTitle(titleRes)
             .setMessage(message)
-            .setPositiveButton(android.R.string.ok, null)
+            .setPositiveButton(R.string.action_ok, null)
             .show()
     }
 }

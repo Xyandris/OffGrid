@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    @file screen_register.xml
-    @brief Edytowalny formularz rejestracji z nazwą, adresem e-mail i hasłem.
-    @details RegisterActivity obsługuje powrót, przejście do logowania i komunikat zamiast utworzenia konta.
-    @note Akcja klawiatury `actionDone` przypada na pole potwierdzenia hasła. Wcześniejsze pola mają `actionNext`.
--->
-<!-- Formularz rejestracji OffGrid. Nawigację obsługuje aktywność. Uwierzytelnianie wymaga konfiguracji. -->
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -176,7 +170,6 @@
                     android:textStyle="normal"
                     android:includeFontPadding="false"
                     android:labelFor="@id/register_password" />
-                <!-- Podpowiedź `newPassword` identyfikuje pole nowego hasła dla autouzupełniania. -->
                 <android.widget.EditText
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -223,10 +216,7 @@
                     android:textStyle="normal"
                     android:includeFontPadding="false"
                     android:labelFor="@id/register_confirm_password" />
-                <!--
-                    @brief Pole ponownego wpisania hasła z maskowaniem wprowadzanych znaków.
-                    @note W obecnej implementacji zgodność z register_password nie jest sprawdzana.
-                -->
+
                 <android.widget.EditText
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -258,10 +248,7 @@
                     android:saveEnabled="false"
                     android:layout_marginTop="6dp" />
             </LinearLayout>
-            <!--
-                @brief Przycisk rejestracji podłączony w RegisterActivity.
-                @note Obecnie pokazuje komunikat o braku konfiguracji; nie waliduje pól ani nie tworzy konta.
-            -->
+
             <android.widget.Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -288,10 +275,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
-            <!--
-                @brief Przejście do LoginActivity zastępujące formularz rejestracji.
-                @note Zakończenie RegisterActivity zapobiega odkładaniu kolejnych formularzy na stosie.
-            -->
+
             <android.widget.Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"

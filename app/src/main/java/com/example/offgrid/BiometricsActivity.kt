@@ -5,11 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
 import com.example.offgrid.databinding.ActivityBiometricsBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-class BiometricsActivity : AppCompatActivity() {
+class BiometricsActivity : BaseActivity() {
     private lateinit var binding: ActivityBiometricsBinding
     private lateinit var authentication: DeviceAuthentication
     private var pendingEnable = false
@@ -80,7 +79,7 @@ class BiometricsActivity : AppCompatActivity() {
                     binding.biometricsStatus.setText(R.string.authentication_unavailable)
                 }
             }
-            .setNegativeButton(android.R.string.cancel, null)
+            .setNegativeButton(R.string.action_cancel, null)
             .show()
     }
 }

@@ -6,4 +6,6 @@
     <string name="auth_invalid_registration">Enter a valid email. Use a password with at least 6 characters and make sure the passwords match.</string>
     <string name="auth_register_failed">Could not create your account. Check your details and internet connection.</string>
     <string name="auth_profile_not_saved">Your account was created, but your display name could not be saved.</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
 </resources>

@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    @file screen_login.xml
-    @brief Edytowalny formularz logowania dostępny w przepływie deweloperskim.
-    @details LoginActivity obsługuje przyciski formularza; uwierzytelnianie nie jest skonfigurowane.
-    @note Pola `login_email` i `login_password` rozróżniają nazwę użytkownika i hasło na potrzeby
-          autouzupełniania.
--->
-<!-- Formularz logowania OffGrid. Nawigację obsługuje aktywność. Uwierzytelnianie wymaga konfiguracji. -->
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -85,10 +78,6 @@
                     android:textStyle="normal"
                     android:includeFontPadding="false"
                     android:labelFor="@id/login_email" />
-                <!--
-                    Adres e-mail ma podpowiedź `username` dla autouzupełniania. Akcja `Next` na
-                    klawiaturze prowadzi do pola hasła.
-                -->
                 <android.widget.EditText
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -135,7 +124,6 @@
                     android:textStyle="normal"
                     android:includeFontPadding="false"
                     android:labelFor="@id/login_password" />
-                <!-- Pole maskuje wpisywane hasło i używa podpowiedzi autouzupełniania `password`. -->
                 <android.widget.EditText
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -167,10 +155,7 @@
                     android:saveEnabled="false"
                     android:layout_marginTop="6dp" />
             </LinearLayout>
-            <!--
-                @brief Wejście do planowanej funkcji resetowania hasła.
-                @note Obecna obsługa wyświetla komunikat o braku konfiguracji i nie wysyła żądania resetu.
-            -->
+
             <android.widget.Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -193,10 +178,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_marginTop="8dp" />
-            <!--
-                @brief Przycisk formularza logowania podłączony w LoginActivity.
-                @note Obecnie wyświetla tylko komunikat; nie sprawdza danych ani nie rozpoczyna sesji.
-            -->
+
             <android.widget.Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -234,10 +216,7 @@
                 android:includeFontPadding="false"
                 android:gravity="center"
                 android:layout_marginTop="24dp" />
-            <!--
-                @brief Przejście do RegisterActivity zastępujące bieżący formularz.
-                @note LoginActivity wywołuje finish(), aby Wstecz z rejestracji prowadziło do ustawień.
-            -->
+
             <android.widget.Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"

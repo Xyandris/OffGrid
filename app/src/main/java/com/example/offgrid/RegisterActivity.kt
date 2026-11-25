@@ -5,16 +5,17 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.addCallback
-import androidx.appcompat.app.AppCompatActivity
 import com.example.offgrid.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : BaseActivity() {
+    override val requiresLogin = false
     private val auth by lazy { FirebaseAuth.getInstance() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (isFinishing) return
         val binding = ActivityRegisterBinding.inflate(layoutInflater)
         showOffGridScreen(binding.root)
         val form = binding.registerScreen

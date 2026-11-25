@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    @file res/layout/screen_contact_list.xml
-    @brief Ekran listy rozmów.
-    @details Przewijany `contacts_content` zawiera przykładowe rozmowy z inicjałami, podglądem ostatniej
-             wiadomości i czasem. Dwa pierwsze wiersze są oznaczone jako klikalne i mają liczniki
-             nieprzeczytanych wiadomości.
--->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -51,7 +44,6 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:paddingBottom="12dp">
-        <!-- Pole pokazuje podpowiedź i ikonę wyszukiwania. Fokus i klikanie są domyślnie wyłączone. -->
         <android.widget.EditText
             android:layout_width="match_parent"
             android:layout_height="44dp"
@@ -81,7 +73,8 @@
             android:inputType="textFilter"
             android:drawableStart="@drawable/ic_search"
             android:drawableTint="@color/offgrid_text_secondary"
-            android:drawablePadding="10dp" />
+            android:drawablePadding="10dp"
+            android:contentDescription="Search conversations" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -90,7 +83,6 @@
         android:importantForAccessibility="no"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
-    <!-- Przewijanie obejmuje listę rozmów. Wspólny pasek nawigacji jest osadzony pod listą. -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -104,10 +96,6 @@
             android:id="@+id/contacts_content"
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
-            <!--
-                Dwa pierwsze wiersze mają klikalne kontenery i przykładowe liczniki nieprzeczytanych
-                wiadomości.
-            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,7 +127,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Do jutra!"
+                        android:text="See you tomorrow!"
                         android:layout_marginTop="4dp"
                         style="@style/Widget.OffGrid.ContactPreview" />
                 </LinearLayout>
@@ -202,7 +190,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dobra 👍"
+                        android:text="Sounds good 👍"
                         android:layout_marginTop="4dp"
                         style="@style/Widget.OffGrid.ContactPreview" />
                 </LinearLayout>
@@ -318,7 +306,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Halo"
+                        android:text="Hello"
                         android:layout_marginTop="4dp"
                         style="@style/Widget.OffGrid.ContactPreview" />
                 </LinearLayout>

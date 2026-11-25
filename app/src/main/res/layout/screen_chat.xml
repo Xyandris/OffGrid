@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    @file res/layout/screen_chat.xml
-    @brief Układ widoku rozmowy.
-    @details Nagłówek zawiera nazwę i awatar rozmówcy. Przewijany `chat_content` pokazuje przykładowe
-             wiadomości przychodzące i wychodzące, z godzinami oraz symbolem potwierdzenia przy
-             wiadomości wychodzącej. Dolny panel zawiera pole wiadomości i przyciski akcji.
--->
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/chat_screen"
     android:background="@color/offgrid_background"
@@ -18,7 +11,6 @@
     tools:ignore="HardcodedText"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +72,6 @@
         android:importantForAccessibility="no"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp" />
-    <!-- Przewijana historia rozmowy mieści się między nagłówkiem a dolnym panelem wiadomości. -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -107,7 +98,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cześć! Będziesz jutro na gali?"
+                    android:text="Hi! Are you going to the gala tomorrow?"
                     style="@style/Widget.OffGrid.MessageText" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -116,10 +107,6 @@
                     android:layout_marginTop="8dp"
                     style="@style/Widget.OffGrid.MessageTime" />
             </LinearLayout>
-            <!--
-                Bąbelek wychodzący jest wyrównany do końca wiersza. Ma osobne kolory treści, godziny i
-                symbolu potwierdzenia.
-            -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -132,7 +119,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tak 👍"
+                    android:text="Yes 👍"
                     style="@style/Widget.OffGrid.MessageText"
                     android:textColor="@color/offgrid_message_outgoing_text" />
                 <LinearLayout
@@ -151,14 +138,13 @@
                         android:layout_width="20dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_double_check"
-                        app:tint="@color/offgrid_message_outgoing_secondary"
+                        android:tint="@color/offgrid_message_outgoing_secondary"
                         android:importantForAccessibility="no"
                         android:scaleType="fitCenter"
                         android:layout_marginStart="18dp"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
             </LinearLayout>
-            <!-- Kontener grupuje dwa kolejne bąbelki przychodzące. Każdy wyświetla własną godzinę. -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,7 +161,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="No to super"
+                        android:text="Great!"
                         style="@style/Widget.OffGrid.MessageText" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -195,7 +181,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Do jutra!"
+                        android:text="See you tomorrow!"
                         style="@style/Widget.OffGrid.MessageText" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -214,10 +200,6 @@
         android:importantForAccessibility="no"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp" />
-    <!--
-        W układzie początkowym pole tekstowe i przyciski załączania oraz wysyłania mają wyłączony fokus
-        i klikanie.
-    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
@@ -264,6 +246,7 @@
             android:drawableEnd="@drawable/ic_emoji"
             android:drawableTint="@color/offgrid_text_secondary"
             android:drawablePadding="8dp"
+            android:contentDescription="Message input"
             android:layout_weight="1"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="8dp" />
@@ -276,7 +259,7 @@
             android:clickable="false"
             android:focusable="false"
             android:background="@drawable/bg_send"
-            app:tint="@color/offgrid_message_outgoing_text"
+            android:tint="@color/offgrid_message_outgoing_text"
             style="@style/Widget.OffGrid.IconButton" />
     </LinearLayout>
 </LinearLayout>

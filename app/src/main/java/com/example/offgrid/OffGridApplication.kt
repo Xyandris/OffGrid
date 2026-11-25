@@ -80,7 +80,8 @@ class OffGridApplication : Application(),
     }
 
     override fun onActivityStopped(activity: Activity) {
-        visibleActivities--
+        visibleActivities = (visibleActivities - 1).coerceAtLeast(0)
+        if (visibleActivities == 0 && !activity.isChangingConfigurations) AppLock.lock()
         updateLightSensor()
     }
 
