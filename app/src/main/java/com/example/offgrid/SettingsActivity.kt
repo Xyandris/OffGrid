@@ -50,6 +50,9 @@ class SettingsActivity : AppCompatActivity() {
         bindMainTabs(binding.settingsScreen.bottomNavigation, MainTab.SETTINGS)
 
         val screen = binding.settingsScreen
+        screen.settingsBiometrics.setOnClickListener {
+            startActivity(Intent(this, BiometricsActivity::class.java))
+        }
         screen.settingsPrivacy.setOnClickListener {
             showSettingsInfo(
                 R.string.settings_privacy_title,
@@ -121,9 +124,20 @@ class SettingsActivity : AppCompatActivity() {
         binding.settingsScreen.settingsBack.setOnClickListener { finish() }
         binding.settingsScreen.settingsLogout.setOnClickListener {
             auth.signOut()
+            AppLock.lock()
+            openLogin()
         }
 
     }
+    override fun onResume() {
+        super.onResume()
+        if (::binding.isInitialized) {
+            binding.settingsScreen.settingsBiometricsValue.setText(
+                if (AppLock.isEnabled(this)) R.string.biometrics_on else R.string.biometrics_off
+            )
+        }
+    }
+
     private fun showSettingsInfo(titleRes: Int, message: String) {
         MaterialAlertDialogBuilder(this)
             .setTitle(titleRes)

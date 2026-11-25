@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    @file res/layout/screen_settings.xml
-    @brief Ekran ustawień OffGrid.
-    @details Zawiera profil, pozycje ustawień, wejścia do formularzy konta i przycisk wylogowania.
-             Profil startuje w stanie wylogowanym, a dane pokazowe są wpisane w `tools:text` na potrzeby
-             podglądu.
--->
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -56,10 +49,6 @@
             android:id="@+id/settings_content"
             android:paddingStart="20dp"
             android:paddingEnd="20dp">
-            <!--
-                Pola profilu startują od wartości stanu wylogowanego. Atrybuty `tools:text` są danymi
-                podglądu w edytorze.
-            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,6 +189,49 @@
                 android:background="@color/offgrid_divider"
                 android:importantForAccessibility="no" />
             <LinearLayout
+                android:id="@+id/settings_biometrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:minHeight="74dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:src="@drawable/ic_lock"
+                    app:tint="@color/offgrid_text"
+                    android:importantForAccessibility="no" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="20dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/Widget.OffGrid.SettingsLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/biometrics_title" />
+                    <TextView
+                        android:id="@+id/settings_biometrics_value"
+                        style="@style/Widget.OffGrid.SettingsDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/biometrics_off" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/offgrid_divider"
+                android:importantForAccessibility="no" />
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -231,10 +263,6 @@
                         android:layout_height="wrap_content"
                         android:text="Appearance"
                         style="@style/Widget.OffGrid.SettingsLabel" />
-                    <!--
-                        Widok `settings_theme_value` wyświetla nazwę trybu motywu. Wartość początkowa
-                        pochodzi z `appearance_light`.
-                    -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -324,10 +352,6 @@
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
-            <!--
-                Nagłówek sekcji deweloperskiej ma widoczność `gone`. Przejścia do logowania i
-                rejestracji są osobnymi przyciskami poniżej.
-            -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -360,11 +384,10 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-    <!-- Wylogowanie jest umieszczone poza przewijaną częścią ustawień, bezpośrednio nad dolną nawigacją. -->
     <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
+        android:minHeight="44dp"
         android:id="@+id/settings_logout"
         android:text="Log out"
         android:background="@drawable/bg_logout"
