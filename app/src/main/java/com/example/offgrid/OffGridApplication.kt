@@ -1,9 +1,9 @@
 /**
- * @file offgrid/OffGridApplication.kt
- * @brief Główna klasa aplikacji OffGrid zarządzająca cyklem życia aktywności, blokadą i motywem.
- * @details Monitoruje widoczność aktywności w celu blokowania sesji po przejściu aplikacji w tło
- *oraz dostosowuje motyw jasny lub ciemny na podstawie ustawień użytkownika lub czujnika światła.
+ * @file app/src/main/java/com/example/offgrid/OffGridApplication.kt
+ * @brief Inicjalizacja aplikacji, profili Firestore oraz obsługi motywu.
+ * @details Łączy obserwację sesji użytkownika z cyklem życia aktywności i czujnikiem oświetlenia.
  */
+
 package com.example.offgrid
 
 import android.app.Activity
@@ -17,55 +17,57 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 
 /**
- * @brief Klasa `Application` koordynująca stan pierwszego planu oraz automatyczny i ręczny motyw OffGrid.
+ * @brief Zarządza wspólnym stanem aplikacji OffGrid.
+ * @details Inicjalizuje UserProfiles, śledzi aktywności na pierwszym planie i dopasowuje motyw
+ *          do zapisanego wyboru albo natężenia światła. Po opuszczeniu aplikacji włącza blokadę.
+ * @see UserProfiles
  */
 class OffGridApplication : Application(),
     Application.ActivityLifecycleCallbacks,
     SensorEventListener {
 
     /**
-     * @brief Preferencje `SharedPreferences` przechowujące konfigurację motywu aplikacji.
+     * @brief Preferencje przechowujące ręczny i automatyczny wybór motywu.
      */
     private val settings by lazy { getSharedPreferences(PREFS, Context.MODE_PRIVATE) }
-
     /**
-     * @brief Systemowy menedżer czujników wykorzystywany do dostępu do czujnika światła.
+     * @brief Systemowy menedżer czujników urządzenia.
      */
     private val sensorManager by lazy { getSystemService(SensorManager::class.java) }
-
     /**
-     * @brief Domyślny czujnik natężenia oświetlenia (`Sensor.TYPE_LIGHT`) lub `null`, gdy jest niedostępny.
+     * @brief Opcjonalny czujnik natężenia światła używany przez motyw automatyczny.
      */
     private val lightSensor by lazy { sensorManager?.getDefaultSensor(Sensor.TYPE_LIGHT) }
 
     /**
-     * @brief Liczba aktualnie widocznych aktywności aplikacji.
+     * @brief Liczba uruchomionych aktywności; wartość dodatnia oznacza aplikację na pierwszym planie.
      */
     private var visibleActivities = 0
-
     /**
-     * @brief Flaga określająca, czy aplikacja nasłuchuje obecnie zdarzeń czujnika światła.
+     * @brief Informacja, czy aplikacja jest zarejestrowana jako odbiorca pomiarów światła.
      */
     private var listening = false
 
     /**
-     * @brief Wskazuje, czy co najmniej jedna aktywność aplikacji znajduje się na pierwszym planie.
+     * @brief Wskazuje, czy co najmniej jedna aktywność pozostaje uruchomiona.
      */
     internal val isInForeground: Boolean
         get() = visibleActivities > 0
 
     /**
-     * @brief Wskazuje, czy aktywny jest automatyczny tryb doboru motywu na podstawie oświetlenia otoczenia.
+     * @brief Wskazuje, czy użytkownik wybrał automatyczne przełączanie motywu.
      */
     internal val isAutomaticTheme: Boolean
         get() = settings.getBoolean(AUTO_THEME, false)
 
     /**
-     * @brief Inicjalizuje aplikację, rejestruje obserwator cyklu życia aktywności i stosuje zapisany motyw.
+     * @brief Przygotowuje globalne usługi aplikacji.
+     * @details Rejestruje obserwację aktywności, uruchamia synchronizację profili i odtwarza motyw.
      */
     override fun onCreate() {
         super.onCreate()
         registerActivityLifecycleCallbacks(this)
+        UserProfiles.initialize(this)
 
         if (settings.contains(DARK_MODE) && (!isAutomaticTheme || lightSensor != null)) {
             applyTheme(dark = settings.getBoolean(DARK_MODE, false))
@@ -73,7 +75,7 @@ class OffGridApplication : Application(),
     }
 
     /**
-     * @brief Zapisuje wybór automatycznego motywu w preferencjach i uruchamia obsługę czujnika światła.
+     * @brief Włącza automatyczny motyw i aktualizuje nasłuchiwanie czujnika światła.
      */
     internal fun saveAutomaticTheme() {
         settings.edit().putBoolean(AUTO_THEME, true).apply()
@@ -81,9 +83,8 @@ class OffGridApplication : Application(),
     }
 
     /**
-     * @brief Zarządza rejestracją i wyrejestrowaniem nasłuchiwania czujnika światła otoczenia.
-     * @details Rejestruje czujnik wyłącznie wtedy, gdy aplikacja jest widoczna i włączony jest tryb
-     *automatyczny. W przypadku braku czujnika ustawia tryb `MODE_NIGHT_FOLLOW_SYSTEM`.
+     * @brief Dopasowuje rejestrację czujnika do widoczności aplikacji i ustawień motywu.
+     * @details Przy braku dostępnego czujnika lub nieudanej rejestracji wybiera motyw systemowy.
      */
     private fun updateLightSensor() {
         if (visibleActivities == 0 || !isAutomaticTheme) {
@@ -105,9 +106,10 @@ class OffGridApplication : Application(),
     }
 
     /**
-     * @brief Zmienia motyw aplikacji w odpowiedzi na odczyt natężenia oświetlenia z czujnika.
-     * @details Dla wartości z przedziału `0..50` lx włącza motyw ciemny, a od `100` lx wzwyż motyw jasny.
-     * @param event Zdarzenie czujnika zawierające aktualny pomiar w luksach.
+     * @brief Przełącza motyw po przekroczeniu progów oświetlenia.
+     * @param event Pomiar czujnika; pierwsza wartość zawiera natężenie światła w luksach.
+     * @details Zakres 0–50 lx wybiera ciemny motyw, a wartości od 100 lx wybierają jasny.
+     *          Przerwa między progami ogranicza częste przełączanie przy zbliżonych pomiarach.
      */
     override fun onSensorChanged(event: SensorEvent) {
         if (!listening) return
@@ -122,15 +124,15 @@ class OffGridApplication : Application(),
     }
 
     /**
-     * @brief Obsługuje zmianę dokładności czujnika; niewykorzystywane w tej aplikacji.
-     * @param sensor Czujnik, którego dokładność uległa zmianie.
-     * @param accuracy Nowy poziom dokładności czujnika.
+     * @brief Przyjmuje zmianę dokładności czujnika bez dodatkowej obsługi.
+     * @param sensor Czujnik zgłaszający zmianę.
+     * @param accuracy Nowy poziom dokładności; nie jest wykorzystywany do wyboru motywu.
      */
     override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) = Unit
 
     /**
-     * @brief Zwiększa licznik widocznych aktywności i aktualizuje nasłuchiwanie czujnika światła.
-     * @param activity Aktywność, która została uruchomiona.
+     * @brief Zwiększa licznik aktywności i w razie potrzeby uruchamia czujnik.
+     * @param activity Aktywność przechodząca do stanu uruchomionego.
      */
     override fun onActivityStarted(activity: Activity) {
         visibleActivities++
@@ -138,10 +140,8 @@ class OffGridApplication : Application(),
     }
 
     /**
-     * @brief Zmniejsza licznik widocznych aktywności i blokuje sesję po przejściu aplikacji w tło.
-     * @details Gdy liczba widocznych aktywności spadnie do zera i nie zachodzi zmiana konfiguracji,
-     * wywołuje `AppLock.lock()`, a następnie wyrejestrowuje czujnik światła.
-     * @param activity Aktywność, która została zatrzymana.
+     * @brief Aktualizuje licznik aktywności, blokadę aplikacji i rejestrację czujnika.
+     * @param activity Zatrzymywana aktywność; jej zmiana konfiguracji nie powoduje zablokowania sesji.
      */
     override fun onActivityStopped(activity: Activity) {
         visibleActivities = (visibleActivities - 1).coerceAtLeast(0)
@@ -150,62 +150,54 @@ class OffGridApplication : Application(),
     }
 
     /**
-     * @brief Wywoływane przy tworzeniu aktywności; brak dodatkowej logiki.
-     * @param activity Tworzona aktywność.
-     * @param savedInstanceState Zapisany stan aktywności lub `null`.
+     * @brief Przyjmuje powiadomienie o utworzeniu aktywności bez dodatkowej obsługi.
+     * @param activity Utworzona aktywność.
+     * @param savedInstanceState Odtwarzany stan aktywności albo null.
      */
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) = Unit
-
     /**
-     * @brief Wywoływane przy wznowieniu aktywności; brak dodatkowej logiki.
-     * @param activity Wznawiana aktywność.
+     * @brief Przyjmuje powiadomienie o wznowieniu aktywności bez dodatkowej obsługi.
+     * @param activity Wznowiona aktywność.
      */
     override fun onActivityResumed(activity: Activity) = Unit
-
     /**
-     * @brief Wywoływane przy wstrzymaniu aktywności; brak dodatkowej logiki.
-     * @param activity Wstrzymywana aktywność.
+     * @brief Przyjmuje powiadomienie o wstrzymaniu aktywności bez dodatkowej obsługi.
+     * @param activity Wstrzymana aktywność.
      */
     override fun onActivityPaused(activity: Activity) = Unit
-
     /**
-     * @brief Wywoływane przy zapisywaniu stanu instancji aktywności; brak dodatkowej logiki.
+     * @brief Przyjmuje powiadomienie o zapisie stanu bez dodawania własnych danych.
      * @param activity Aktywność zapisująca stan.
-     * @param outState Kontener na zapisywany stan.
+     * @param outState Pakiet stanu przekazany przez system.
      */
     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) = Unit
-
     /**
-     * @brief Wywoływane przy niszczeniu aktywności; brak dodatkowej logiki.
-     * @param activity Niszczona aktywność.
+     * @brief Przyjmuje powiadomienie o zniszczeniu aktywności bez dodatkowej obsługi.
+     * @param activity Zniszczona aktywność.
      */
     override fun onActivityDestroyed(activity: Activity) = Unit
 
     /**
-     * @brief Stałe preferencji oraz metody pomocnicze do zapisywania i stosowania motywu aplikacji.
+     * @brief Udostępnia zapis ręcznego wyboru motywu i klucze preferencji.
      */
     companion object {
         /**
-         * @brief Nazwa pliku `SharedPreferences` z ustawieniami aplikacji.
+         * @brief Nazwa pliku preferencji ustawień OffGrid.
          */
         private const val PREFS = "offgrid_settings"
-
         /**
-         * @brief Klucz preferencji określający wybór motywu ciemnego.
+         * @brief Klucz zapamiętanego wyboru ciemnego motywu.
          */
         private const val DARK_MODE = "dark_mode"
-
         /**
-         * @brief Klucz preferencji określający włączenie trybu automatycznego motywu.
+         * @brief Klucz włączenia motywu sterowanego automatycznie.
          */
         private const val AUTO_THEME = "auto_theme"
 
         /**
-         * @brief Zapisuje ręczny wybór motywu jasnego lub ciemnego i natychmiast go stosuje.
-         * @details Wyłącza tryb automatyczny, aktualizuje nasłuchiwanie czujnika światła w instancji
-         *`OffGridApplication` oraz ustawia odpowiedni tryb nocy w `AppCompatDelegate`.
-         * @param context Kontekst używany do zapisu preferencji i pobrania instancji aplikacji.
-         * @param dark Wartość `true` dla motywu ciemnego lub `false` dla motywu jasnego.
+         * @brief Zapisuje ręczny wybór motywu i wyłącza tryb automatyczny.
+         * @param context Kontekst używany do odczytu preferencji i instancji aplikacji.
+         * @param dark Wartość true wybiera motyw ciemny, a false wybiera jasny.
          */
         fun saveTheme(context: Context, dark: Boolean) {
             context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -219,8 +211,8 @@ class OffGridApplication : Application(),
         }
 
         /**
-         * @brief Ustawia domyślny tryb nocy w `AppCompatDelegate`.
-         * @param dark Wartość `true` dla `MODE_NIGHT_YES` lub `false` dla `MODE_NIGHT_NO`.
+         * @brief Ustawia wybrany wariant motywu we wszystkich aktywnościach AppCompat.
+         * @param dark Wartość true oznacza motyw ciemny, a false oznacza jasny.
          */
         private fun applyTheme(dark: Boolean) {
             val mode = if (dark) {

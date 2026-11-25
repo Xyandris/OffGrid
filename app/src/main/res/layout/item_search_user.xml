@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--!
+    @file app/src/main/res/layout/item_search_user.xml
+    @brief Układ pojedynczego użytkownika na liście wyników wyszukiwania.
+    @details Zawiera dekoracyjne inicjały, nazwę użytkownika oraz separator kolejnych pozycji.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp">
+        <!--! @brief Inicjały zastępujące awatar; pomijane przez czytnik ekranu jako dekoracja. -->
+        <TextView
+            android:id="@+id/user_initials"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_avatar"
+            android:gravity="center"
+            android:importantForAccessibility="no"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/offgrid_text"
+            android:textSize="19sp" />
+        <!--! @brief Nazwa użytkownika wyświetlana w najwyżej dwóch wierszach. -->
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:textColor="@color/offgrid_text"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/offgrid_divider" />
+</LinearLayout>

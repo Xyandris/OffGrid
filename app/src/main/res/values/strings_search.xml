@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--!
+    @file app/src/main/res/values/strings_search.xml
+    @brief Zasoby tekstowe wyszukiwarki i synchronizacji profilu użytkownika.
+    @details Zawiera podpowiedzi, opisy akcji, komunikaty błędów oraz odmianę liczby widocznych profili.
+-->
+<resources>
+    <!--! @brief Podpowiedź widoczna w pustym polu wyszukiwania. -->
+    <string name="search_query_hint">Search users…</string>
+    <!--! @brief Wyjaśnienie prefiksu nazwy, minimalnej długości oraz normalizacji tekstu. -->
+    <string name="search_query_help">Search from the beginning of a name. Use at least 2 characters. Accents and capital letters do not matter.</string>
+    <!--! @brief Nagłówek katalogu przy pustym zapytaniu. -->
+    <string name="search_users_heading">Users</string>
+    <!--! @brief Nagłówek wyników dla wpisanego prefiksu. -->
+    <string name="search_results_heading">Search results</string>
+    <!--! @brief Wskazówka dla tekstu niespełniającego minimalnej długości zapytania. -->
+    <string name="search_minimum_characters">Enter at least 2 characters to search.</string>
+    <!--! @brief Komunikat podczas pobierania użytkowników. -->
+    <string name="search_loading">Loading users…</string>
+    <!--! @brief Stan pustego katalogu po odfiltrowaniu własnego konta. -->
+    <string name="search_no_users">No other users yet.</string>
+    <!--! @brief Stan braku dopasowań do podanego prefiksu. -->
+    <string name="search_no_results">No users found. Try the beginning of another name.</string>
+    <!--! @brief Komunikat problemu z połączeniem lub przekroczenia czasu pobierania. -->
+    <string name="search_connection_error">Could not connect. Check your internet connection and try again.</string>
+    <!--! @brief Ogólny komunikat nieudanego pobierania użytkowników. -->
+    <string name="search_failed">User search is currently unavailable. Please try again.</string>
+    <!--! @brief Etykieta ponawiania nieudanej operacji. -->
+    <string name="search_retry">Retry</string>
+    <!--! @brief Etykieta pobierania następnej strony wyników. -->
+    <string name="search_load_more">Load more</string>
+    <!--! @brief Informacja o przygotowywaniu własnego profilu katalogowego. -->
+    <string name="search_profile_preparing">Preparing your searchable profile…</string>
+    <!--! @brief Informacja o potrzebie ponowienia synchronizacji własnego profilu. -->
+    <string name="search_profile_failed">Your profile could not be prepared yet. Retry to make it visible to other users.</string>
+    <!--! @brief Zachęta do uzupełnienia nazwy wymaganej przez wyszukiwarkę. -->
+    <string name="search_profile_name_missing">Add a display name so other users can find you.</string>
+    <!--! @brief Etykieta otwierająca formularz brakującej nazwy. -->
+    <string name="search_add_name">Add display name</string>
+    <!--! @brief Podpowiedź pola nazwy w oknie uzupełniania profilu. -->
+    <string name="search_name_hint">Display name</string>
+    <!--! @brief Komunikat niepoprawnej nazwy albo przekroczenia jej limitu. -->
+    <string name="search_name_invalid">Enter a name with 1–100 characters.</string>
+    <!--! @brief Etykieta zatwierdzająca nazwę użytkownika. -->
+    <string name="search_save">Save</string>
+    <!--! @brief Informacja o gotowym koncie i możliwości ponowienia przygotowania profilu. -->
+    <string name="search_registration_profile_pending">Your account is ready. Open Search to retry preparing your profile.</string>
+    <!--! @brief Odmiana liczby widocznych użytkowników. @details Argument %d zawiera liczbę profili w liście. -->
+    <plurals name="search_user_count">
+        <item quantity="one">%d user</item>
+        <item quantity="other">%d users</item>
+    </plurals>
+</resources>
