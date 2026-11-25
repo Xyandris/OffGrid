@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/bg_navigation_tab.xml
+    @brief Tło przycisku dolnej nawigacji z efektem dotknięcia.
+    @details `Widget.OffGrid.TabButton` stosuje to tło pod ikoną i etykietą. Efekt `ripple` używa  wspólnego koloru z palety OffGrid.
+-->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/offgrid_ripple">
     <item android:drawable="@color/offgrid_background" />
 </ripple>

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/bg_bubble_incoming.xml
+    @brief Tło bąbelka wiadomości przychodzącej.
+    @details Zaokrąglony prostokąt korzysta z `offgrid_message_incoming`, aby dostosować wypełnienie do aktywnego motywu.
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <solid android:color="@color/offgrid_message_incoming" />
     <corners android:radius="10dp" />

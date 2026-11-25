@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/bg_send.xml
+    @brief Owalne tło przycisku wysyłania wiadomości.
+    @details Korzysta z koloru `offgrid_message_outgoing`. W `screen_chat.xml` stanowi tło dla ikony `ic_send`.
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
     <solid android:color="@color/offgrid_message_outgoing" />
 </shape>

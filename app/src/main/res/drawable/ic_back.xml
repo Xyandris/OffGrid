@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/ic_back.xml
+    @brief Wektorowa strzałka powrotu.
+    @details Wspólny symbol dla przycisków powrotu w rozmowie, zaproszeniach i ustawieniach.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="28dp" android:height="28dp"
     android:viewportWidth="24" android:viewportHeight="24">

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/bg_field.xml
+    @brief Wspólne obrysowane tło pól i przycisków.
+    @details Używają go pola wyszukiwania, pole wiadomości i styl `Widget.OffGrid.OutlinedButton`.
+             Wypełnienie oraz obrys pochodzą z palety motywu.
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <solid android:color="@color/offgrid_background" />
     <corners android:radius="8dp" />

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/ic_info.xml
+    @brief Wektorowa ikona informacji o aplikacji.
+    @details Symbol informacji w okręgu jest używany w wierszu `settings_about`.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="28dp" android:height="28dp"
     android:viewportWidth="24" android:viewportHeight="24">

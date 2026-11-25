@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/color/requests_badge_text.xml
+    @brief Kolor cyfry znacznika na karcie zaproszeń.
+    @details W stanie zaznaczenia cyfra jest przezroczysta, tak samo jak tło znacznika. Domyślnie biały kontur cyfry jest widoczny na czerwonym tle.
+-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_selected="true" android:color="@android:color/transparent" />
     <item android:color="@color/white" />

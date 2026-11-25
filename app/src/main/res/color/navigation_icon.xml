@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/color/navigation_icon.xml
+    @brief Kolor etykiet i ikon dolnej nawigacji.
+    @details `state_selected` wybiera akcent `offgrid_message_outgoing`. W pozostałych stanach
+     obowiązuje `offgrid_text`. Selektor jest używany przez `Widget.OffGrid.TabButton` i obrys ikony zaproszeń.
+-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_selected="true" android:color="@color/offgrid_message_outgoing" />
     <item android:color="@color/offgrid_text" />

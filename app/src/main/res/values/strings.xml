@@ -1,3 +1,9 @@
+<!--
+    @file res/values/strings.xml
+    @brief Teksty nawigacji, formularzy konta i ustawień.
+    @details Zawiera między innymi opisy powrotu, nazwy kart oraz komunikaty używane w przepływie
+             deweloperskim. `settings_about_message` przyjmuje nazwę aplikacji jako `%1$s` i wersję jako `%2$s`.
+-->
 <resources>
     <string name="app_name">OffGridDev</string>
     <string name="home_description">Open Settings to access your account.</string>
@@ -17,6 +23,7 @@
     <string name="back_settings">Back to Settings</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
+    <!-- Komunikaty przepływu deweloperskiego dla logowania, rejestracji i resetowania hasła. -->
     <string name="login_not_configured">Sign-in is not configured yet.</string>
     <string name="register_not_configured">Account creation is not configured yet.</string>
     <string name="password_reset_not_configured">Password reset is not configured yet.</string>
@@ -40,5 +47,6 @@
     <string name="settings_help_message">Tap a contact in Chats to open a conversation. Use Log in or Register in Settings to access your account.</string>
 
     <string name="settings_about_title">About</string>
+    <!-- Symbole `%1$s` i `%2$s` są argumentami formatu dla nazwy aplikacji i numeru wersji. -->
     <string name="settings_about_message">%1$s\nVersion %2$s</string>
 </resources>

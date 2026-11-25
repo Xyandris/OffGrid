@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/ic_launcher_foreground.xml
+    @brief Warstwa pierwszoplanowa adaptacyjnej ikony OffGrid.
+    @details Korzysta z bitmapy `res/drawable-nodpi/offgrid_logo.png`. Odstęp 18% z każdej strony odsuwa
+             logo od krawędzi warstwy, a filtrowanie wygładza bitmapę podczas skalowania.
+-->
 <inset xmlns:android="http://schemas.android.com/apk/res/android"
     android:insetLeft="18%"
     android:insetTop="18%"

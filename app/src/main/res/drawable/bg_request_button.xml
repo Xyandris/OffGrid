@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/bg_request_button.xml
+    @brief Zaokrąglone tło przycisków zaproszeń i formularzy konta.
+    @details Wspólny kształt zachowuje promień 12 dp. Układy mogą dobrać osobny kolor wypełnienia przez
+             `android:backgroundTint`.
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <solid android:color="@color/offgrid_button" />
     <corners android:radius="12dp" />

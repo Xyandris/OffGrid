@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/values/colors.xml
+    @brief Domyślna, jasna paleta OffGrid.
+    @details Zawiera kolory tła, tekstu, pól, wiadomości i akcji wylogowania. Zasoby `offgrid_*` mają
+    odpowiedniki o tych samych nazwach w `res/values-night/colors.xml`.
+-->
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
@@ -8,11 +14,13 @@
     <color name="offgrid_divider">#D1D1D1</color>
     <color name="offgrid_field">#F2F2F2</color>
     <color name="offgrid_button">#E8E8E8</color>
+    <!-- Paleta rozmowy zawiera wypełnienia obu bąbelków oraz osobne kolory tekstu na tle akcentu. -->
     <color name="offgrid_message_incoming">#E7E7E7</color>
     <color name="offgrid_message_outgoing">#1F66FF</color>
     <color name="offgrid_message_outgoing_text">#FFFFFF</color>
     <color name="offgrid_message_outgoing_secondary">#FFFFFF</color>
     <color name="offgrid_avatar_outline">#787878</color>
+    <!-- Przycisk wylogowania ma dedykowane kolory wypełnienia, etykiety i obrysu. -->
     <color name="offgrid_logout_background">#F8DEDE</color>
     <color name="offgrid_logout_text">#923D3D</color>
     <color name="offgrid_logout_outline">#E5BABA</color>

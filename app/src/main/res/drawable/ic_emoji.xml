@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/ic_emoji.xml
+    @brief Wektorowa ikona emoji przy polu wiadomości.
+    @details Uśmiech jest osadzony w `chat_message_input` jako `android:drawableEnd` i korzysta z
+             odcienia tekstu pomocniczego.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="28dp" android:height="28dp"
     android:viewportWidth="24" android:viewportHeight="24">

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/values-night/colors.xml
+    @brief Ciemna paleta OffGrid.
+    @details Kwalifikator `night` podstawia te wartości pod nazwy `offgrid_*`, z których korzystają
+      układy i style. Akcent wiadomości wychodzących jest wspólny dla obu trybów.
+-->
 <resources>
     <color name="offgrid_background">#1B1B1B</color>
     <color name="offgrid_text">#F2F2F2</color>

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/bg_badge.xml
+    @brief Tło licznika nieprzeczytanych wiadomości na liście rozmów.
+    @details Owal ma kolor akcentu wiadomości wychodzących. Liczbę podaje `TextView` w
+             `screen_contact_list.xml`.
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
     <solid android:color="@color/offgrid_message_outgoing" />
 </shape>

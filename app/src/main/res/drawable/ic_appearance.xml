@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/ic_appearance.xml
+    @brief Wektorowa ikona wyglądu aplikacji.
+    @details Symbol słońca oznacza pozycję `settings_appearance`, obok której wyświetlana jest nazwa
+             trybu motywu.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="28dp" android:height="28dp"
     android:viewportWidth="24" android:viewportHeight="24">

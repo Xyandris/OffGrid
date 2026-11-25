@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/ic_help.xml
+    @brief Wektorowa ikona pomocy.
+    @details Znak zapytania w okręgu oznacza pozycję `settings_help` na ekranie ustawień.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="28dp" android:height="28dp"
     android:viewportWidth="24" android:viewportHeight="24">

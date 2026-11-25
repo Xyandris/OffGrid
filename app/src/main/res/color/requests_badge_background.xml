@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/color/requests_badge_background.xml
+    @brief Kolor tła znacznika na karcie zaproszeń.
+    @details `ic_requests_badge` używa przezroczystego tła znacznika na wybranej karcie. W pozostałych
+             stanach tło jest czerwone.
+-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_selected="true" android:color="@android:color/transparent" />
     <item android:color="#D93440" />

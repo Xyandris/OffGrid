@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/values/styles.xml
+    @brief Wspólne style widoków OffGrid.
+    @details Definiuje wygląd przycisków, kart nawigacji, nagłówków, awatarów i treści rozmów. Style
+     odwołują się do nazwanych kolorów, dzięki czemu korzystają z palety wybranej przez konfigurację jasną lub ciemną.
+-->
 <resources>
     <style name="Widget.OffGrid.ActionButton" parent="@android:style/Widget.Button">
         <item name="android:layout_width">match_parent</item>
@@ -26,6 +32,10 @@
         <item name="android:backgroundTint">@null</item>
     </style>
 
+    <!--
+        Waga przy szerokości 0 dp daje kartom równy udział w szerokości paska. Selektor
+        `navigation_icon` barwi tekst i ikonę.
+    -->
     <style name="Widget.OffGrid.TabButton" parent="Widget.OffGrid.ActionButton">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">76dp</item>
@@ -54,6 +64,7 @@
         <item name="android:stateListAnimator">@null</item>
     </style>
 
+    <!-- Bazowy styl tytułu oznacza widok jako nagłówek dostępności. `SectionTitle` dziedziczy ten atrybut. -->
     <style name="Widget.OffGrid.ScreenTitle" parent="">
         <item name="android:textSize">36sp</item>
         <item name="android:textStyle">normal</item>
@@ -94,6 +105,7 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <!-- Podgląd ostatniej wiadomości zajmuje jeden wiersz. Dłuższy tekst jest skracany na końcu. -->
     <style name="Widget.OffGrid.ContactPreview" parent="Widget.OffGrid.ScreenDescription">
         <item name="android:textSize">15sp</item>
         <item name="android:maxLines">1</item>
@@ -105,6 +117,7 @@
         <item name="android:gravity">end</item>
     </style>
 
+    <!-- Maksymalna szerokość tekstu wiadomości ogranicza szerokość jego bloku w bąbelku. -->
     <style name="Widget.OffGrid.MessageText" parent="">
         <item name="android:textColor">@color/offgrid_text</item>
         <item name="android:textSize">21sp</item>

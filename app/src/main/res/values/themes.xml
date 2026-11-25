@@ -1,3 +1,9 @@
+<!--
+    @file res/values/themes.xml
+    @brief Motyw aplikacji OffGrid oparty na Material 3.
+    @details `Base.Theme.OffGrid` dziedziczy po `Theme.Material3.DayNight.NoActionBar` i wiąże tło okna,
+     powierzchnie oraz tekst z paletą `offgrid_*`. `Theme.OffGrid` udostępnia tę konfigurację jako motyw aplikacji.
+-->
 <resources>
     <style name="Base.Theme.OffGrid" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:fontFamily">sans-serif</item>

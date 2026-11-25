@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/bg_logout.xml
+    @brief Tło przycisku wylogowania w ustawieniach.
+    @details Wypełnienie i obrys korzystają z dedykowanych kolorów wylogowania. Dotknięcie widoku daje  wizualną reakcję w kolorze `offgrid_ripple`.
+-->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/offgrid_ripple">
     <item>
         <shape android:shape="rectangle">

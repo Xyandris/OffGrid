@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/drawable/bg_bubble_outgoing.xml
+    @brief Tło bąbelka wiadomości wychodzącej.
+    @details Wypełnienie korzysta z akcentu `offgrid_message_outgoing`. Układ rozmowy dobiera osobno
+             kolory tekstu i godziny wyświetlanych na tym tle.
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <solid android:color="@color/offgrid_message_outgoing" />
     <corners android:radius="10dp" />

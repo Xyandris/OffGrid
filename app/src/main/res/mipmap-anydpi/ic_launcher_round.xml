@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/mipmap-anydpi/ic_launcher_round.xml
+    @brief Okrągły wariant ikony uruchamiania OffGrid.
+    @details Korzysta z tego samego tła i tej samej warstwy logo co `res/mipmap-anydpi/ic_launcher.xml`,
+             więc oba warianty przedstawiają ten sam znak aplikacji.
+-->
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@drawable/ic_launcher_background" />
     <foreground android:drawable="@drawable/ic_launcher_foreground" />
