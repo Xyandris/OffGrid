@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/offgrid_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/ic_lock"
+            android:importantForAccessibility="no"
+            app:tint="@color/offgrid_text" />
+
+        <TextView
+            style="@style/Widget.OffGrid.ScreenTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/lock_title" />
+
+        <TextView
+            style="@style/Widget.OffGrid.ScreenDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/lock_description" />
+
+        <TextView
+            android:id="@+id/lock_status"
+            style="@style/Widget.OffGrid.ScreenDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:accessibilityLiveRegion="polite" />
+
+        <android.widget.Button
+            android:id="@+id/lock_retry"
+            style="@style/Widget.OffGrid.ActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/lock_try_again" />
+    </LinearLayout>
+</ScrollView>

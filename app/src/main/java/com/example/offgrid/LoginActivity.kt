@@ -38,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 form.loginSubmit.isEnabled = true
                 if (task.isSuccessful) {
+                    AppLock.unlock(this)
                     openChats()
                 } else {
                     Toast.makeText(this, R.string.auth_login_failed, Toast.LENGTH_LONG).show()

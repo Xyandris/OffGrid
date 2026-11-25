@@ -55,6 +55,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (!profileTask.isSuccessful) {
                         Toast.makeText(this, R.string.auth_profile_not_saved, Toast.LENGTH_LONG).show()
                     }
+                    AppLock.unlock(this)
                     openChats()
                 }
             }
