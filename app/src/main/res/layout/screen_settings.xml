@@ -196,10 +196,7 @@
                 android:minHeight="74dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:gravity="center_vertical"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true">
+                android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="38dp"
                     android:layout_height="38dp"
@@ -225,6 +222,14 @@
                         android:layout_marginTop="4dp"
                         android:text="@string/biometrics_off" />
                 </LinearLayout>
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/settings_biometrics_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="48dp"
+                    android:contentDescription="@string/biometrics_title"
+                    android:saveEnabled="false" />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"

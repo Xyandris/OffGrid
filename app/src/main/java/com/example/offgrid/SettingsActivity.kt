@@ -4,6 +4,8 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
+import android.widget.Toast
 import com.example.offgrid.databinding.ActivitySettingsBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
@@ -49,9 +51,24 @@ class SettingsActivity : BaseActivity() {
         bindMainTabs(binding.settingsScreen.bottomNavigation, MainTab.SETTINGS)
 
         val screen = binding.settingsScreen
-        screen.settingsBiometrics.setOnClickListener {
-            startActivity(Intent(this, BiometricsActivity::class.java))
+        val authentication = DeviceAuthentication(
+            this,
+            onSuccess = {
+                AppLock.setEnabled(this, true)
+                updateBiometrics()
+            },
+            onMessage = { Toast.makeText(this, it, Toast.LENGTH_SHORT).show() }
+        )
+        screen.settingsBiometricsSwitch.setOnCheckedChangeListener { _, checked ->
+            if (checked == AppLock.isEnabled(this)) return@setOnCheckedChangeListener
+            if (checked) {
+                authentication.authenticate()
+            } else {
+                AppLock.setEnabled(this, false)
+            }
+            updateBiometrics()
         }
+
         screen.settingsPrivacy.setOnClickListener {
             showSettingsInfo(
                 R.string.settings_privacy_title,
@@ -130,11 +147,19 @@ class SettingsActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (::binding.isInitialized) {
-            binding.settingsScreen.settingsBiometricsValue.setText(
-                if (AppLock.isEnabled(this)) R.string.biometrics_on else R.string.biometrics_off
-            )
-        }
+        if (::binding.isInitialized && !isFinishing) updateBiometrics()
+    }
+
+    private fun updateBiometrics() {
+        val enabled = AppLock.isEnabled(this)
+        val screen = binding.settingsScreen
+        screen.settingsBiometricsSwitch.isChecked = enabled
+        screen.settingsBiometricsValue.setText(
+            if (enabled) R.string.biometrics_on else R.string.biometrics_off
+        )
+
+        val secure = WindowManager.LayoutParams.FLAG_SECURE
+        window.setFlags(if (enabled) secure else 0, secure)
     }
 
     private fun showSettingsInfo(titleRes: Int, message: String) {

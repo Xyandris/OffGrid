@@ -3,11 +3,7 @@
     <string name="biometrics_title">Biometrics</string>
     <string name="biometrics_on">ON</string>
     <string name="biometrics_off">OFF</string>
-    <string name="biometrics_label">App lock</string>
-    <string name="biometrics_description">Confirm your identity when you return to the app after leaving it.</string>
-    <string name="biometrics_methods">Use biometrics when available, or your device PIN, pattern, or password.</string>
     <string name="biometrics_device_lock_required">Set up a device PIN, pattern, or password in your system settings first.</string>
-    <string name="biometrics_open_security">Device settings</string>
     <string name="authentication_title">Unlock OffGrid</string>
     <string name="authentication_subtitle">Use biometrics or your device PIN, pattern, or password.</string>
     <string name="authentication_cancelled">Authentication canceled. Please try again.</string>
