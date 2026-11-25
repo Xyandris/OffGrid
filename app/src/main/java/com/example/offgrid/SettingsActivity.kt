@@ -9,16 +9,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 
-/**
- * @brief Ekran ustawień z wejściem do deweloperskich formularzy konta.
- * Obsługuje zakładki, powrót oraz otwieranie logowania i rejestracji.
- * @note Pozostałe pozycje ustawień i wylogowanie są na razie elementami makiety.
- */
 class SettingsActivity : AppCompatActivity() {
-    /**
-     * @brief Inicjalizuje nawigację ustawień i przyciski otwierające formularze konta.
-     * @param savedInstanceState Stan zapisany przez Androida lub null przy pierwszym utworzeniu.
-     */
+
     private lateinit var binding: ActivitySettingsBinding
     private val auth by lazy { FirebaseAuth.getInstance() }
     private val accountListener= FirebaseAuth.AuthStateListener{firebase->
@@ -51,7 +43,6 @@ class SettingsActivity : AppCompatActivity() {
         super.onStop()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
-
 
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
@@ -122,10 +113,10 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         binding.settingsScreen.btnLogin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java).putExtra(DEVELOPER_SCREEN, true))
         }
         binding.settingsScreen.btnRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java).putExtra(DEVELOPER_SCREEN, true))
         }
         binding.settingsScreen.settingsBack.setOnClickListener { finish() }
         binding.settingsScreen.settingsLogout.setOnClickListener {
@@ -141,5 +132,3 @@ class SettingsActivity : AppCompatActivity() {
             .show()
     }
 }
-
-
