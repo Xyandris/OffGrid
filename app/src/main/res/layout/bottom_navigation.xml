@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/layout/bottom_navigation.xml
+    @brief Wspólny dolny pasek nawigacji OffGrid.
+    @details Zawiera karty czatów, wyszukiwania, zaproszeń i ustawień. Styl `Widget.OffGrid.TabButton`
+             nadaje kartom równą szerokość i kolor zależny od stanu zaznaczenia. Ikona zaproszeń
+             korzysta z własnych selektorów kolorów.
+-->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="78dp"
@@ -47,6 +54,7 @@
             android:background="@color/offgrid_divider"
             android:layout_gravity="center_vertical"
             android:importantForAccessibility="no" />
+        <!-- Własne kolory sylwetki i znacznika wymagają wyłączenia wspólnego `drawableTint` dla tej ikony. -->
         <android.widget.Button
             android:layout_width="0dp"
             android:layout_height="76dp"

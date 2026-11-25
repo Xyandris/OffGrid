@@ -4,6 +4,7 @@
     @brief Layout główny aktywności RegisterActivity.
     @details Dołącza screen_register.xml przez include o identyfikatorze registerScreen.
     Główny FrameLayout otrzymuje odstępy pasków systemowych i klawiatury przez showOffGridScreen.
+    @note Dołączony formularz rozdziela wprowadzenie hasła i jego potwierdzenie na osobne pola.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

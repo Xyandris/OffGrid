@@ -4,6 +4,7 @@
     @brief Layout główny aktywności MainActivity.
     @details Dołącza screen_contact_list.xml przez include o identyfikatorze chatList.
     Główny FrameLayout otrzymuje odstępy pasków systemowych i klawiatury przez showOffGridScreen.
+    @note Dolny pasek nawigacji jest częścią dołączonej listy rozmów.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

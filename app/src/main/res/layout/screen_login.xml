@@ -3,6 +3,8 @@
     @file screen_login.xml
     @brief Edytowalny formularz logowania dostępny w przepływie deweloperskim.
     @details LoginActivity obsługuje przyciski formularza; uwierzytelnianie nie jest skonfigurowane.
+    @note Pola `login_email` i `login_password` rozróżniają nazwę użytkownika i hasło na potrzeby
+          autouzupełniania.
 -->
 <!-- Formularz logowania OffGrid. Nawigację obsługuje aktywność. Uwierzytelnianie wymaga konfiguracji. -->
 <LinearLayout
@@ -83,6 +85,10 @@
                     android:textStyle="normal"
                     android:includeFontPadding="false"
                     android:labelFor="@id/login_email" />
+                <!--
+                    Adres e-mail ma podpowiedź `username` dla autouzupełniania. Akcja `Next` na
+                    klawiaturze prowadzi do pola hasła.
+                -->
                 <android.widget.EditText
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -129,6 +135,7 @@
                     android:textStyle="normal"
                     android:includeFontPadding="false"
                     android:labelFor="@id/login_password" />
+                <!-- Pole maskuje wpisywane hasło i używa podpowiedzi autouzupełniania `password`. -->
                 <android.widget.EditText
                     android:layout_width="match_parent"
                     android:layout_height="48dp"

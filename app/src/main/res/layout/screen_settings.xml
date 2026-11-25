@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/layout/screen_settings.xml
+    @brief Ekran ustawień OffGrid.
+    @details Zawiera profil, pozycje ustawień, wejścia do formularzy konta i przycisk wylogowania.
+             Profil startuje w stanie wylogowanym, a dane pokazowe są wpisane w `tools:text` na potrzeby
+             podglądu.
+-->
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -49,6 +56,10 @@
             android:id="@+id/settings_content"
             android:paddingStart="20dp"
             android:paddingEnd="20dp">
+            <!--
+                Pola profilu startują od wartości stanu wylogowanego. Atrybuty `tools:text` są danymi
+                podglądu w edytorze.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -220,6 +231,10 @@
                         android:layout_height="wrap_content"
                         android:text="Appearance"
                         style="@style/Widget.OffGrid.SettingsLabel" />
+                    <!--
+                        Widok `settings_theme_value` wyświetla nazwę trybu motywu. Wartość początkowa
+                        pochodzi z `appearance_light`.
+                    -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -309,6 +324,10 @@
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
+            <!--
+                Nagłówek sekcji deweloperskiej ma widoczność `gone`. Przejścia do logowania i
+                rejestracji są osobnymi przyciskami poniżej.
+            -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -341,10 +360,11 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+    <!-- Wylogowanie jest umieszczone poza przewijaną częścią ustawień, bezpośrednio nad dolną nawigacją. -->
     <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="44dp"
+        android:minHeight="48dp"
         android:id="@+id/settings_logout"
         android:text="Log out"
         android:background="@drawable/bg_logout"

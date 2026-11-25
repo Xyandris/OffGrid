@@ -4,6 +4,7 @@
     @brief Layout główny aktywności SearchActivity.
     @details Dołącza screen_search.xml przez include o identyfikatorze searchScreen.
     Główny FrameLayout otrzymuje odstępy pasków systemowych i klawiatury przez showOffGridScreen.
+    @note Dołączony ekran grupuje przykładowe kontakty w sekcjach Recent i All contacts.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

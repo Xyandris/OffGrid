@@ -3,6 +3,7 @@
     @file screen_register.xml
     @brief Edytowalny formularz rejestracji z nazwą, adresem e-mail i hasłem.
     @details RegisterActivity obsługuje powrót, przejście do logowania i komunikat zamiast utworzenia konta.
+    @note Akcja klawiatury `actionDone` przypada na pole potwierdzenia hasła. Wcześniejsze pola mają `actionNext`.
 -->
 <!-- Formularz rejestracji OffGrid. Nawigację obsługuje aktywność. Uwierzytelnianie wymaga konfiguracji. -->
 <LinearLayout
@@ -175,6 +176,7 @@
                     android:textStyle="normal"
                     android:includeFontPadding="false"
                     android:labelFor="@id/register_password" />
+                <!-- Podpowiedź `newPassword` identyfikuje pole nowego hasła dla autouzupełniania. -->
                 <android.widget.EditText
                     android:layout_width="match_parent"
                     android:layout_height="48dp"

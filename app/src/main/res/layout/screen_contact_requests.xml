@@ -1,13 +1,35 @@
 <?xml version='1.0' encoding='utf-8'?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/requests_screen" android:orientation="vertical" android:background="@color/offgrid_background" android:layoutDirection="ltr" tools:layout_width="360dp" tools:layout_height="720dp" tools:ignore="HardcodedText">
+<!--
+    @file res/layout/screen_contact_requests.xml
+    @brief Ekran zaproszeń do kontaktów.
+    @details Kontener `requests_content` zawiera wpisaną w XML liczbę zaproszeń i dwa przykładowe
+             wiersze. Każdy wiersz pokazuje nadawcę oraz parę przycisków Accept i Remove.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/requests_screen"
+    android:orientation="vertical"
+    android:background="@color/offgrid_background"
+    android:layoutDirection="ltr"
+    tools:layout_width="360dp"
+    tools:layout_height="720dp"
+    tools:ignore="HardcodedText">
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingStart="12dp" android:paddingEnd="12dp" android:minHeight="96dp" android:paddingTop="20dp" android:paddingBottom="20dp">
-        <ImageButton android:layout_width="48dp" android:layout_height="48dp" android:id="@+id/requests_back" android:background="?android:attr/selectableItemBackgroundBorderless" android:backgroundTint="@null" android:gravity="center" android:minWidth="0dp" android:minHeight="0dp" android:padding="10dp" android:elevation="0dp" android:stateListAnimator="@null" android:clickable="true" android:focusable="true" android:contentDescription="@string/back_home" android:layout_marginEnd="8dp" android:src="@drawable/ic_back" android:tint="@color/offgrid_text" android:scaleType="fitCenter" />
+        <ImageButton android:layout_width="48dp" android:layout_height="48dp" android:id="@+id/requests_back" android:background="?android:attr/selectableItemBackgroundBorderless" android:backgroundTint="@null" android:gravity="center" android:minWidth="0dp" android:minHeight="0dp" android:padding="10dp" android:elevation="0dp" android:stateListAnimator="@null" android:clickable="true" android:focusable="true" android:contentDescription="@string/back_home" android:layout_marginEnd="8dp" android:src="@drawable/ic_back" app:tint="@color/offgrid_text" android:scaleType="fitCenter" />
         <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/tab_requests" android:textSize="36sp" android:textColor="@color/offgrid_text" android:fontFamily="sans-serif-light" android:textStyle="normal" android:includeFontPadding="false" android:layout_weight="1" />
     </LinearLayout>
     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/offgrid_divider" />
     <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true" android:scrollbars="none">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/requests_content" android:orientation="vertical" android:padding="16dp">
+            <!--
+                Liczba oczekujących zaproszeń jest wpisana w tekst widoku i odpowiada dwóm przykładowym
+                wierszom.
+            -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2 pending requests" android:textSize="12sp" android:textColor="@color/offgrid_text_secondary" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" android:layout_marginBottom="20dp" />
+            <!-- Akcje Accept i Remove mają wyłączone klikanie i fokus w obu przykładowych wierszach. -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/request_olivia" android:orientation="vertical" android:layout_marginBottom="20dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
                     <TextView android:layout_width="52dp" android:layout_height="52dp" android:text="OD" android:textSize="19sp" android:textColor="@color/offgrid_text" android:fontFamily="sans-serif" android:textStyle="normal" android:includeFontPadding="false" android:gravity="center" android:background="@drawable/bg_avatar" />

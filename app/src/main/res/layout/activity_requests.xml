@@ -4,6 +4,7 @@
     @brief Layout główny aktywności RequestsActivity.
     @details Dołącza screen_contact_requests.xml przez include o identyfikatorze requestsScreen.
     Główny FrameLayout otrzymuje odstępy pasków systemowych i klawiatury przez showOffGridScreen.
+    @note Dołączony ekran zawiera przykładowe zaproszenia oraz wspólny dolny pasek nawigacji.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
