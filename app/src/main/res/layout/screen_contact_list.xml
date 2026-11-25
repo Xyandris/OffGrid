@@ -79,7 +79,7 @@
             android:inputType="textFilter"
             android:drawableStart="@drawable/ic_search"
             android:drawableTint="@color/offgrid_text_secondary"
-            android:drawablePadding="10dp"
+            android:drawablePadding="10dp"></android.widget.EditText>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
