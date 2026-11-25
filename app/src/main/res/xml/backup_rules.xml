@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/xml/backup_rules.xml
+    @brief Reguły pełnej kopii zapasowej danych aplikacji dla starszych wersji systemu Android.
+    @details Konfiguruje element `full-backup-content` powiązany z manifestem aplikacji poprzez
+     atrybut `android:fullBackupContent`.
+-->
 <full-backup-content>
 
 </full-backup-content>

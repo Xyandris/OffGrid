@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+   @file res/values/strings_auth.xml
+  @brief Komunikaty walidacji i błędów uwierzytelniania oraz etykiety okien dialogowych.
+ @details Definiuje zasoby tekstowe używane podczas logowania i rejestracji w `LoginActivity`
+ i `RegisterActivity`, a także uniwersalne przyciski `action_cancel` i `action_ok`.
+-->
 <resources>
     <string name="auth_invalid_login">Enter a valid email and password.</string>
     <string name="auth_login_failed">Sign-in failed. Check your email, password, and internet connection.</string>

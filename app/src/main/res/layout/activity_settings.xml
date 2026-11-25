@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/layout/activity_settings.xml
+    @brief Główny kontener widoku dla `SettingsActivity`.
+    @details Osadza ekran ustawień aplikacji `screen_settings` pod identyfikatorem `settingsScreen` na tle `offgrid_background`.
+-->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/values/strings_biometrics.xml
+    @brief Teksty obsługi blokady aplikacji i uwierzytelniania biometrycznego.
+    @details Zawiera etykiety ustawień biometrii, komunikaty systemowego okna `BiometricPrompt` używane
+przez `DeviceAuthentication` oraz opisy ekranu blokady `LockActivity`.
+-->
 <resources>
     <string name="biometrics_title">Biometrics</string>
     <string name="biometrics_on">ON</string>

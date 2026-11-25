@@ -1,3 +1,9 @@
+/**
+ * @file offgrid/RegisterActivity.kt
+ * @brief Ekran rejestracji nowego konta użytkownika w aplikacji OffGrid.
+ * @details Realizuje walidację danych formularza, tworzenie konta w Firebase Authentication,
+ * zapis nazwy wyświetlanej użytkownika oraz obsługę nawigacji powrotnej.
+ */
 package com.example.offgrid
 
 import android.content.Intent
@@ -9,10 +15,26 @@ import com.example.offgrid.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 
+/**
+ * @brief Aktywność obsługująca tworzenie nowego profilu użytkownika.
+ */
 class RegisterActivity : BaseActivity() {
+    /**
+     * @brief Wyłącza wymóg posiadania aktywnej sesji użytkownika na ekranie rejestracji.
+     */
     override val requiresLogin = false
+
+    /**
+     * @brief Leniwie inicjalizowana instancja `FirebaseAuth` wykorzystywana do rejestracji konta.
+     */
     private val auth by lazy { FirebaseAuth.getInstance() }
 
+    /**
+     * @brief Tworzy widok formularza rejestracji i konfiguruje obsługę interakcji użytkownika.
+     * @details Waliduje nazwę użytkownika, format adresu e-mail, długość i zgodność haseł,
+     * tworzy konto w Firebase Authentication, zapisuje `displayName` profilu i otwiera czaty.
+     * @param savedInstanceState Zapisany stan instancji aktywności lub `null`.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (isFinishing) return
@@ -63,6 +85,10 @@ class RegisterActivity : BaseActivity() {
         }
     }
 
+    /**
+     * @brief Przekierowuje zalogowanego użytkownika bezpośrednio do ekranu rozmów.
+     * @details Przekierowanie jest pomijane, gdy ekran otwarto w trybie deweloperskim (`DEVELOPER_SCREEN`).
+     */
     override fun onStart() {
         super.onStart()
         if (auth.currentUser != null && !intent.getBooleanExtra(DEVELOPER_SCREEN, false)) {
@@ -70,6 +96,10 @@ class RegisterActivity : BaseActivity() {
         }
     }
 
+    /**
+     * @brief Obsługuje cofnięcie z ekranu rejestracji za pomocą przycisku w nagłówku lub gestu wstecz.
+     * @param developerScreen Wartość `true`, jeśli ekran został otwarty z ustawień deweloperskich.
+     */
     private fun goBack(developerScreen: Boolean) {
         if (developerScreen) finish() else openLogin()
     }

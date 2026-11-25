@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/layout/activity_search.xml
+    @brief Główny kontener widoku dla `SearchActivity`.
+    @details Osadza ekran wyszukiwania kontaktów `screen_search` pod identyfikatorem `searchScreen` na tle `offgrid_background`.
+-->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

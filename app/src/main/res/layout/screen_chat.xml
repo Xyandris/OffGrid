@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_width="match_parent"
+<!--
+    @file res/layout/screen_chat.xml
+    @brief Ekran pojedynczej rozmowy z kontaktem.
+    @details Zawiera nagłówek z przyciskiem powrotu `chat_back`, awatarem `chat_avatar` i nazwą rozmówcy `chat_contact_name`, przewijaną historię przykładowych wiadomości `chat_content` oraz dolny
+ pasek wpisywania i wysyłania wiadomości.
+-->
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/chat_screen"
     android:background="@color/offgrid_background"
@@ -138,7 +144,7 @@
                         android:layout_width="20dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_double_check"
-                        android:tint="@color/offgrid_message_outgoing_secondary"
+                        app:tint="@color/offgrid_message_outgoing_secondary"
                         android:importantForAccessibility="no"
                         android:scaleType="fitCenter"
                         android:layout_marginStart="18dp"
@@ -246,7 +252,6 @@
             android:drawableEnd="@drawable/ic_emoji"
             android:drawableTint="@color/offgrid_text_secondary"
             android:drawablePadding="8dp"
-            android:contentDescription="Message input"
             android:layout_weight="1"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="8dp" />
@@ -259,7 +264,7 @@
             android:clickable="false"
             android:focusable="false"
             android:background="@drawable/bg_send"
-            android:tint="@color/offgrid_message_outgoing_text"
+            app:tint="@color/offgrid_message_outgoing_text"
             style="@style/Widget.OffGrid.IconButton" />
     </LinearLayout>
 </LinearLayout>

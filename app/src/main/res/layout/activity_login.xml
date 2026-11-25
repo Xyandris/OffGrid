@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/layout/activity_login.xml
+    @brief Główny kontener widoku dla `LoginActivity`.
+    @details Osadza układ formularza logowania `screen_login` pod identyfikatorem `loginScreen`
+ na tle `offgrid_background`.
+-->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

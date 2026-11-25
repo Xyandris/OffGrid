@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/xml/data_extraction_rules.xml
+    @brief Reguły ekstrakcji i kopii zapasowej danych dla systemu Android 12 i nowszych.
+    @details Definiuje sekcję `cloud-backup` wewnątrz `data-extraction-rules` wskazywaną przez
+atrybut `android:dataExtractionRules` w manifeście.
+-->
 <data-extraction-rules>
     <cloud-backup>
 

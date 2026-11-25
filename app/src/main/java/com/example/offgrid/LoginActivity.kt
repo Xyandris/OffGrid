@@ -1,3 +1,9 @@
+/**
+ * @file offgrid/LoginActivity.kt
+ * @brief Ekran logowania użytkownika do aplikacji OffGrid.
+ * @details Obsługuje walidację danych logowania, uwierzytelnianie przy użyciu Firebase Authentication,
+ *  nawigację do rejestracji oraz podgląd ekranu w trybie deweloperskim.
+ */
 package com.example.offgrid
 
 import android.content.Intent
@@ -8,10 +14,26 @@ import android.widget.Toast
 import com.example.offgrid.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
+/**
+ * @brief Aktywność prezentująca formularz logowania za pomocą adresu e-mail i hasła.
+ */
 class LoginActivity : BaseActivity() {
+    /**
+     * @brief Wyłącza wymóg posiadania aktywnej sesji użytkownika na ekranie logowania.
+     */
     override val requiresLogin = false
+
+    /**
+     * @brief Leniwie inicjalizowana instancja `FirebaseAuth` wykorzystywana do logowania.
+     */
     private val auth by lazy { FirebaseAuth.getInstance() }
 
+    /**
+     * @brief Tworzy interfejs ekranu logowania i podpina obsługę przycisków formularza.
+     * @details Konfiguruje widoczność przycisku powrotu w trybie deweloperskim, przejście do
+     *          `RegisterActivity`, walidację adresu e-mail i hasła oraz logowanie w Firebase.
+     * @param savedInstanceState Zapisany stan instancji aktywności lub `null`.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (isFinishing) return
@@ -51,6 +73,10 @@ class LoginActivity : BaseActivity() {
         }
     }
 
+    /**
+     * @brief Przekierowuje zalogowanego użytkownika bezpośrednio do listy rozmów.
+     * @details Przekierowanie jest pomijane, gdy aktywność została otwarta z flagą `DEVELOPER_SCREEN`.
+     */
     override fun onStart() {
         super.onStart()
         if (auth.currentUser != null && !intent.getBooleanExtra(DEVELOPER_SCREEN, false)) {

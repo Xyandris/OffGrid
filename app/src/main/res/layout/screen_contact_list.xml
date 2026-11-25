@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/layout/screen_contact_list.xml
+    @brief Ekran głównej listy rozmów i kontaktów.
+    @details Obejmuje nagłówek z przyciskiem nowej wiadomości `contacts_new_message`, pole wyszukiwania `contacts_search`, listę konwersacji w `contacts_content` oraz dolny pasek nawigacji
+   `bottom_navigation`.
+-->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -74,7 +80,6 @@
             android:drawableStart="@drawable/ic_search"
             android:drawableTint="@color/offgrid_text_secondary"
             android:drawablePadding="10dp"
-            android:contentDescription="Search conversations" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"

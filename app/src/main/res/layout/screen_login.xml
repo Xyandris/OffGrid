@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/layout/screen_login.xml
+    @brief Ekran formularza logowania do konta OffGrid.
+    @details Zawiera opcjonalny przycisk powrotu `login_back`, pola adresu e-mail `login_email` i hasła `login_password`, przycisk logowania `login_submit` oraz przejście do rejestracji
+    `login_open_register`.
+-->
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"

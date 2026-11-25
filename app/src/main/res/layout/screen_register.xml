@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    @file res/layout/screen_register.xml
+    @brief Ekran formularza rejestracji nowego konta OffGrid.
+    @details Udostępnia pola nazwy użytkownika `register_name`, adresu e-mail `register_email`, hasła `register_password` i jego potwierdzenia `register_confirm_password`, przycisk utworzenia konta `register_submit` oraz powrót do logowania `register_open_login`.
+-->
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
